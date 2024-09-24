@@ -44020,7 +44020,12 @@
                         }),
                         a.a.createElement(
                             "div",
-                            { className: "no-gutters v2board-auth-box" },
+                            { className: "no-gutters v2board-auth-box",
+                                style: {
+                                    backgroundImage:
+                                        "url(https://cdn2.fptshop.com.vn/unsafe/Uploads/images/tin-tuc/172740/Originals/background-la-gi-1.jpg)",
+                                },
+                             },
                             a.a.createElement(
                                 "div",
                                 {
