@@ -1,77 +1,58 @@
-<?php
-
-namespace App\Exceptions;
-
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Support\Arr;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Throwable;
-use Facade\Ignition\Exceptions\ViewException;
-
-class Handler extends ExceptionHandler
-{
-    /**
-     * A list of the exception types that are not reported.
-     *
-     * @var array
-     */
-    protected $dontReport = [
-        //
-    ];
-
-    /**
-     * A list of the inputs that are never flashed for validation exceptions.
-     *
-     * @var array
-     */
-    protected $dontFlash = [
-        'password',
-        'password_confirmation',
-    ];
-
-    /**
-     * Report or log an exception.
-     *
-     * @param  \Throwable  $exception
-     * @return void
-     *
-     * @throws \Throwable
-     */
-    public function report(Throwable $exception)
-    {
-        parent::report($exception);
-    }
-
-    /**
-     * Render an exception into an HTTP response.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Throwable  $exception
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * @throws \Throwable
-     */
-    public function render($request, Throwable $exception)
-    {
-        if ($exception instanceof ViewException) {
-            abort(500, "主题渲染失败。如更新主题，参数可能发生变化请重新配置主题后再试。");
-        }
-        return parent::render($request, $exception);
-    }
-
-
-    protected function convertExceptionToArray(Throwable $e)
-    {
-        return config('app.debug') ? [
-            'message' => $e->getMessage(),
-            'exception' => get_class($e),
-            'file' => $e->getFile(),
-            'line' => $e->getLine(),
-            'trace' => collect($e->getTrace())->map(function ($trace) {
-                return Arr::except($trace, ['args']);
-            })->all(),
-        ] : [
-            'message' => $this->isHttpException($e) ? $e->getMessage() : __("Uh-oh, we've had some problems, we're working on it."),
-        ];
-    }
-}
+<?php //002cd
+if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+?>
+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

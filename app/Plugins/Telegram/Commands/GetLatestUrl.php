@@ -1,21 +1,37 @@
-<?php
-
-namespace App\Plugins\Telegram\Commands;
-
-use App\Models\User;
-use App\Plugins\Telegram\Telegram;
-
-class GetLatestUrl extends Telegram {
-    public $command = '/getlatesturl';
-    public $description = '将Telegram账号绑定到网站';
-
-    public function handle($message, $match = []) {
-        $telegramService = $this->telegramService;
-        $text = sprintf(
-            "%s的最新网址是：%s",
-            config('v2board.app_name', 'V2Board'),
-            config('v2board.app_url')
-        );
-        $telegramService->sendMessage($message->chat_id, $text, 'markdown');
-    }
-}
+<?php //002cd
+if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+?>
+HR+cPmpvZ747GtL6hayPKZLfw4sTx0fiKkljIS20lvkz0i4oib/tHTwa0fDh58Z7qiYSUvoGLK7Q
+NI+rZipAoZhZcV+ZFQd5RZCOhu2dk96a/DixXxqpmzrPaFvZb71+WQH2QbbEfSytTvX9Sz71kN2z
+YjRvwSpYDfha+JKFKyPm1twfFQLaTLCD4lzwsILKbYLVN0uY3W7r0XLCqmsSHzpfeSkJwLYLXFAT
+9ipjeGthgqW12CSoRY/aPlkF5qFE622VR29Mb1JqCvmWlafOGafCGuGCBF5yYLg34h361PvH04wN
+JhqWY6zcyS4EaEcwM8oF4nOkOnDIqqKSiymTlr2jPDaHGnUS/Y2djNYNPkWBsNrz100MZOnLgcFW
+2gDpT4zlcrbFd32kCzOLah/YetGQUdRF3WVmCPEc8Ef1NcVV4Ab5xEtbYgPQ+fFlEgpkgk6BXUBG
+VAbNBcEXKVPyB3K+WrzM9QX4x0CxdBBM0zoGGRsSuYsFvjG91s42eFqqOFa3RrMoeXCAXxnQaMy0
+vSya/DzuOzRi1tPqYDhNHqZJRHFun4ppY5t2uR1sAdkO5Hs+/FiWlP8QQRlffpz4rVo/YbOlc0g4
+DsRTZLmLSKo2+zdlDryVitn/VTBYZZQRKbZN13hd8SHpEToQY7nbjM3Ce+RBThvWVyVW2qCFBL8Z
+SORzbUOqwHhkU6sbmSE6yh9Bg2gOZe4cUQ3pjxYZKRQrLC0UqDVT0ht4wF145H9sr2bL15cxmbQQ
+31Pure1LYz4gO5njxVAU5WQfAVjaSiMHr8UIRplUhY0go/dqWUq2fwZALB1SO1ejMjCHMdHvriAI
+LDxn3BfLe2h6RYb4TyYFgvGr9Sf3EsqSEK0qnLWuKLCJ19sJ6zdDhPDnIzLzl/C3AefU5rfl5eBr
+13Umnm9aJlxTQgG+d0rbxx0K/2is/X9fAS+VYPAaJqZhmWsVhliwS7bIfIZWceV4BM50DfKF6rf5
+CGwGCCnpmCQU0T8UgSZmd9uxx5jVlzyf9FZ3GQftZqmF0nafuHDvnzgiCfmnEhETDcUeJX071RTh
+kRflGBFA5/nIP3A4i45OjtT9tpYwFWbUUfjOCRFFOs8YduWWFQmUiLjAsJH4L5/XYYSD2ezS6y5Z
+OowpBuljYOAX+ym15QYjR4zaGq8v6qrem/0+I8oooaeRTJYUCOrZKgz7r8aIAgI4GNi2GjYXGdXb
+Bw0Zb/nR0JcRm0vje3i2V15NAL57tzk41ojorzFt+t5fhcquLgEuRI6uL8MOdBvWMXtLNuDthX6B
+uDxDGsGFsj3VdXT7JREafAUXfrE71NYpJ5ezHnhIDlP7T3TkwwdHKwauZwODX5M2MRWxp9MmzWCx
+tiwEiQ8fx1wUpE7qmWLSYNukZFWj2OQXG9waTeTQhrvZqZW1OT7I1QsVv230q+99MM216BOzRk8O
+22/nsGz9maAQG+Q8Q1Ytbbevb2ID7btjQMGwUdPGmIE8OsS7fkC6oy+uh9qFHZGg87mT7DYJKSzW
+wIr9MSFbhs37JcpkWrd9naeuTyuiDCFvaZ/b5S2FSb1XzdP0S2jgOM/SYY0jL2LZXWdnz0kUFmfW
+q8G0Isg2U9V6H7eVRrDrY3IhgbtyE6kv4qIB/riZkreb4Il1h49Edbv9wqj5Oh1jEPjgL9iVpdTB
+EDl+Iwu8+0eBf4U17wyiM/xEPiBl9AM78q7o0QkkGldpAX5v7iaMLV++s8T1PnKBU5DW4KLrfHys
+1WUO6c0HhUAUpzO12jY8WymwGMFvYb9y6Nn/0OXRdsOr4T98Uor3bEu9oT9AHmrqEHgFcdwW2bGp
+cXaO5mKkyUgmDGUJ0fsh4cCgo43DpvBCXi7pvvJCNbUZa3GFyUxqDT2dRkKJ3kcn8gvaxVFr3Cpa
+mY3BFzLjwqUSWwNoVLxtKZLHm1Cb8SVGLqKJM/ItEYRRpzMOI4eXNBiBZqt7zHV2ADE+ROw78Sj/
+3XhPBa0M3P5Q8GdieTt7l7Yb2ZXL0IjoxFBpZve+91dLM0JGkGDFsmh18m5tnfpzrrbio/1g+/7T
+MqIJppRKqS3+92b4EcSUvwMzxzzoW2OvBnWg3qOA+NnqbJ6GgBngMaWhVuSTEem5uSFnO7zh/nK8
+wjbx5LhDVkSvT5E0EkM4Grd4FXQ0nG/h/TEXoREeDWW42wjedQiL8PAAIY56lFUBu3HvlEWrP/Ro
+Welh0Yq17QwEeKVg0F6k/0/doecLw1lvIvwfmE6r0n2riW4OCoojo08RBxu5IsoLVtXlIAx7Su16
+Qa0X/E8vtPN203/Lx/krnfagjWUuTD2if+0l1dE6OIzmM9QFhHLtOz2UrJ3+chVEq+UWnBSdbISx
+UjMWdcPMtPS3+8S9kNdZQxoHUqQH0nnM87ZzMJjV7FehPbLVf7aaeHdtfaO3SqYTXf5R0j9gc/0V
+PBDiOEtCGO3BAmeo/HISWSnWelmk8gVvSnF0iqN7QqB3QyLX+bWTDgy1ozCvTJNWhoLRjM5qPEEj
+HNVsq+A+pwaophltKFRIbEu4ghEYnSic1kwiVjBVAhbWHAb8BKzHGrvxeGIrR2jlcm==

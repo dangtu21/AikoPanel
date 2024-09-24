@@ -170,11 +170,12 @@ return [
 
     'environments' => [
         'local' => [
-            'V2board' => [
+            'aikopanel' => [
                 'connection' => 'redis',
                 'queue' => [
                     'order_handle',
                     'traffic_fetch',
+                    'stat',
                     'send_email',
                     'send_email_mass',
                     'send_telegram',

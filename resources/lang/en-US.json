@@ -59,6 +59,8 @@
     "Unsupported withdrawal method": "Unsupported withdrawal method",
     "Withdrawal account": "Withdrawal account",
     "Withdrawal method": "Withdrawal method",
+    "Withdrawal amount": "Withdrawal amount",
+    "Not enough money": "Not enough money",
     "You can only cancel pending orders": "You can only cancel pending orders",
     "You have an unpaid or pending order, please try again later or cancel it": "You have an unpaid or pending order, please try again later or cancel it",
     "You must have a valid subscription to view content in this area": "You must have a valid subscription to view content in this area",
@@ -94,5 +96,8 @@
     "Login to :name": "Login to :name",
     "Sending frequently, please try again later": "Sending frequently, please try again later",
     "Current product is sold out": "Current product is sold out",
-    "There are too many password errors, please try again after :minute minutes.": "There are too many password errors, please try again after :minute minutes."
+    "There are too many password errors, please try again after :minute minutes.": "There are too many password errors, please try again after :minute minutes.",
+    "Reset failed, Please try again later": "Reset failed, Please try again later",
+    "The withdrawal amount cannot be greater than the current commission balance": "The withdrawal amount cannot be greater than the current commission balance",
+    "You do not have permission to access this site": "You do not have permission to access this site"
 }

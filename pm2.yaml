@@ -1,5 +1,5 @@
 apps:
-  - name     : 'V2Board'
+  - name     : 'AikoPanel'
     script   : 'php artisan horizon'
     instances: 1
     out_file : './storage/logs/queue/queue.log'

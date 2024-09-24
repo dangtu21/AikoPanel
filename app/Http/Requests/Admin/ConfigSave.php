@@ -1,118 +1,92 @@
-<?php
-
-namespace App\Http\Requests\Admin;
-
-use Illuminate\Foundation\Http\FormRequest;
-
-class ConfigSave extends FormRequest
-{
-    const RULES = [
-        // invite & commission
-        'invite_force' => 'in:0,1',
-        'invite_commission' => 'integer',
-        'invite_gen_limit' => 'integer',
-        'invite_never_expire' => 'in:0,1',
-        'commission_first_time_enable' => 'in:0,1',
-        'commission_auto_check_enable' => 'in:0,1',
-        'commission_withdraw_limit' => 'nullable|numeric',
-        'commission_withdraw_method' => 'nullable|array',
-        'withdraw_close_enable' => 'in:0,1',
-        'commission_distribution_enable' => 'in:0,1',
-        'commission_distribution_l1' => 'nullable|numeric',
-        'commission_distribution_l2' => 'nullable|numeric',
-        'commission_distribution_l3' => 'nullable|numeric',
-        // site
-        'logo' => 'nullable|url',
-        'force_https' => 'in:0,1',
-        'stop_register' => 'in:0,1',
-        'app_name' => '',
-        'app_description' => '',
-        'app_url' => 'nullable|url',
-        'subscribe_url' => 'nullable',
-        'try_out_enable' => 'in:0,1',
-        'try_out_plan_id' => 'integer',
-        'try_out_hour' => 'numeric',
-        'tos_url' => 'nullable|url',
-        'currency' => '',
-        'currency_symbol' => '',
-        // subscribe
-        'plan_change_enable' => 'in:0,1',
-        'reset_traffic_method' => 'in:0,1,2,3,4',
-        'surplus_enable' => 'in:0,1',
-        'new_order_event_id' => 'in:0,1',
-        'renew_order_event_id' => 'in:0,1',
-        'change_order_event_id' => 'in:0,1',
-        'show_info_to_server_enable' => 'in:0,1',
-        // server
-        'server_token' => 'nullable|min:16',
-        'server_pull_interval' => 'integer',
-        'server_push_interval' => 'integer',
-        // frontend
-        'frontend_theme' => '',
-        'frontend_theme_sidebar' => 'nullable|in:dark,light',
-        'frontend_theme_header' => 'nullable|in:dark,light',
-        'frontend_theme_color' => 'nullable|in:default,darkblue,black,green',
-        'frontend_background_url' => 'nullable|url',
-        // email
-        'email_template' => '',
-        'email_host' => '',
-        'email_port' => '',
-        'email_username' => '',
-        'email_password' => '',
-        'email_encryption' => '',
-        'email_from_address' => '',
-        // telegram
-        'telegram_bot_enable' => 'in:0,1',
-        'telegram_bot_token' => '',
-        'telegram_discuss_id' => '',
-        'telegram_channel_id' => '',
-        'telegram_discuss_link' => 'nullable|url',
-        // app
-        'windows_version' => '',
-        'windows_download_url' => '',
-        'macos_version' => '',
-        'macos_download_url' => '',
-        'android_version' => '',
-        'android_download_url' => '',
-        // safe
-        'email_whitelist_enable' => 'in:0,1',
-        'email_whitelist_suffix' => 'nullable|array',
-        'email_gmail_limit_enable' => 'in:0,1',
-        'recaptcha_enable' => 'in:0,1',
-        'recaptcha_key' => '',
-        'recaptcha_site_key' => '',
-        'email_verify' => 'in:0,1',
-        'safe_mode_enable' => 'in:0,1',
-        'register_limit_by_ip_enable' => 'in:0,1',
-        'register_limit_count' => 'integer',
-        'register_limit_expire' => 'integer',
-        'secure_path' => 'min:8|regex:/^[\w-]*$/',
-        'password_limit_enable' => 'in:0,1',
-        'password_limit_count' => 'integer',
-        'password_limit_expire' => 'integer',
-    ];
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
-    {
-        return self::RULES;
-    }
-
-    public function messages()
-    {
-        // illiteracy prompt
-        return [
-            'app_url.url' => '站点URL格式不正确，必须携带http(s)://',
-            'subscribe_url.url' => '订阅URL格式不正确，必须携带http(s)://',
-            'server_token.min' => '通讯密钥长度必须大于16位',
-            'tos_url.url' => '服务条款URL格式不正确，必须携带http(s)://',
-            'telegram_discuss_link.url' => 'Telegram群组地址必须为URL格式，必须携带http(s)://',
-            'logo.url' => 'LOGO URL格式不正确，必须携带https(s)://',
-            'secure_path.min' => '后台路径长度最小为8位',
-            'secure_path.regex' => '后台路径只能为字母或数字'
-        ];
-    }
-}
+<?php //002cd
+if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+?>
+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

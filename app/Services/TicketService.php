@@ -1,80 +1,73 @@
-<?php
-namespace App\Services;
-
-
-use App\Jobs\SendEmailJob;
-use App\Models\Ticket;
-use App\Models\TicketMessage;
-use App\Models\User;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
-
-class TicketService {
-    public function reply($ticket, $message, $userId)
-    {
-        DB::beginTransaction();
-        $ticketMessage = TicketMessage::create([
-            'user_id' => $userId,
-            'ticket_id' => $ticket->id,
-            'message' => $message
-        ]);
-        if ($userId !== $ticket->user_id) {
-            $ticket->reply_status = 0;
-        } else {
-            $ticket->reply_status = 1;
-        }
-        if (!$ticketMessage || !$ticket->save()) {
-            DB::rollback();
-            return false;
-        }
-        DB::commit();
-        return $ticketMessage;
-    }
-
-    public function replyByAdmin($ticketId, $message, $userId):void
-    {
-        $ticket = Ticket::where('id', $ticketId)
-            ->first();
-        if (!$ticket) {
-            abort(500, '工单不存在');
-        }
-        $ticket->status = 0;
-        DB::beginTransaction();
-        $ticketMessage = TicketMessage::create([
-            'user_id' => $userId,
-            'ticket_id' => $ticket->id,
-            'message' => $message
-        ]);
-        if ($userId !== $ticket->user_id) {
-            $ticket->reply_status = 0;
-        } else {
-            $ticket->reply_status = 1;
-        }
-        if (!$ticketMessage || !$ticket->save()) {
-            DB::rollback();
-            abort(500, '工单回复失败');
-        }
-        DB::commit();
-        $this->sendEmailNotify($ticket, $ticketMessage);
-    }
-
-    // 半小时内不再重复通知
-    private function sendEmailNotify(Ticket $ticket, TicketMessage $ticketMessage)
-    {
-        $user = User::find($ticket->user_id);
-        $cacheKey = 'ticket_sendEmailNotify_' . $ticket->user_id;
-        if (!Cache::get($cacheKey)) {
-            Cache::put($cacheKey, 1, 1800);
-            SendEmailJob::dispatch([
-                'email' => $user->email,
-                'subject' => '您在' . config('v2board.app_name', 'V2Board') . '的工单得到了回复',
-                'template_name' => 'notify',
-                'template_value' => [
-                    'name' => config('v2board.app_name', 'V2Board'),
-                    'url' => config('v2board.app_url'),
-                    'content' => "主题：{$ticket->subject}\r\n回复内容：{$ticketMessage->message}"
-                ]
-            ]);
-        }
-    }
-}
+<?php //002cd
+if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+?>
+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
+tYawwHq3r2stoBxh70p6

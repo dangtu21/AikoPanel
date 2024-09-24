@@ -1,164 +1,76 @@
-<?php
-
-namespace App\Console\Commands;
-
-use App\Models\Plan;
-use Illuminate\Console\Command;
-use App\Models\User;
-use Illuminate\Support\Facades\DB;
-
-class ResetTraffic extends Command
-{
-    protected $builder;
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'reset:traffic';
-
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = '流量清空';
-
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->builder = User::where('expired_at', '!=', NULL)
-            ->where('expired_at', '>', time());
-    }
-
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-    public function handle()
-    {
-        ini_set('memory_limit', -1);
-        $resetMethods = Plan::select(
-            DB::raw("GROUP_CONCAT(`id`) as plan_ids"),
-            DB::raw("reset_traffic_method as method")
-        )
-            ->groupBy('reset_traffic_method')
-            ->get()
-            ->toArray();
-        foreach ($resetMethods as $resetMethod) {
-            $planIds = explode(',', $resetMethod['plan_ids']);
-            switch (true) {
-                case ($resetMethod['method'] === NULL): {
-                    $resetTrafficMethod = config('v2board.reset_traffic_method', 0);
-                    $builder = with(clone($this->builder))->whereIn('plan_id', $planIds);
-                    switch ((int)$resetTrafficMethod) {
-                        // month first day
-                        case 0:
-                            $this->resetByMonthFirstDay($builder);
-                            break;
-                        // expire day
-                        case 1:
-                            $this->resetByExpireDay($builder);
-                            break;
-                        // no action
-                        case 2:
-                            break;
-                        // year first day
-                        case 3:
-                            $this->resetByYearFirstDay($builder);
-                        // year expire day
-                        case 4:
-                            $this->resetByExpireYear($builder);
-                    }
-                    break;
-                }
-                case ($resetMethod['method'] === 0): {
-                    $builder = with(clone($this->builder))->whereIn('plan_id', $planIds);
-                    $this->resetByMonthFirstDay($builder);
-                    break;
-                }
-                case ($resetMethod['method'] === 1): {
-                    $builder = with(clone($this->builder))->whereIn('plan_id', $planIds);
-                    $this->resetByExpireDay($builder);
-                    break;
-                }
-                case ($resetMethod['method'] === 2): {
-                    break;
-                }
-                case ($resetMethod['method'] === 3): {
-                    $builder = with(clone($this->builder))->whereIn('plan_id', $planIds);
-                    $this->resetByYearFirstDay($builder);
-                    break;
-                }
-                case ($resetMethod['method'] === 4): {
-                    $builder = with(clone($this->builder))->whereIn('plan_id', $planIds);
-                    $this->resetByExpireYear($builder);
-                    break;
-                }
-            }
-        }
-    }
-
-    private function resetByExpireYear($builder):void
-    {
-        $users = [];
-        foreach ($builder->get() as $item) {
-            $expireDay = date('m-d', $item->expired_at);
-            $today = date('m-d');
-            if ($expireDay === $today) {
-                array_push($users, $item->id);
-            }
-        }
-        User::whereIn('id', $users)->update([
-            'u' => 0,
-            'd' => 0
-        ]);
-    }
-
-    private function resetByYearFirstDay($builder):void
-    {
-        if ((string)date('md') === '0101') {
-            $builder->update([
-                'u' => 0,
-                'd' => 0
-            ]);
-        }
-    }
-
-    private function resetByMonthFirstDay($builder):void
-    {
-        if ((string)date('d') === '01') {
-            $builder->update([
-                'u' => 0,
-                'd' => 0
-            ]);
-        }
-    }
-
-    private function resetByExpireDay($builder):void
-    {
-        $lastDay = date('d', strtotime('last day of +0 months'));
-        $users = [];
-        foreach ($builder->get() as $item) {
-            $expireDay = date('d', $item->expired_at);
-            $today = date('d');
-            if ($expireDay === $today) {
-                array_push($users, $item->id);
-            }
-
-            if (($today === $lastDay) && $expireDay >= $lastDay) {
-                array_push($users, $item->id);
-            }
-        }
-        User::whereIn('id', $users)->update([
-            'u' => 0,
-            'd' => 0
-        ]);
-    }
-}
+<?php //002cd
+if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+?>
+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

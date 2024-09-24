@@ -1,28 +1,32 @@
-<?php
-
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
-
-use App\User;
-use Faker\Generator as Faker;
-use Illuminate\Support\Str;
-
-/*
-|--------------------------------------------------------------------------
-| Model Factories
-|--------------------------------------------------------------------------
-|
-| This directory should contain each of the model factory definitions for
-| your application. Factories provide a convenient way to generate new
-| model instances for testing / seeding your application's database.
-|
-*/
-
-$factory->define(User::class, function (Faker $faker) {
-    return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => Str::random(10),
-    ];
-});
+<?php //002cd
+if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+?>
+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
+Q3XV5eVZTET8I053at2BlF2WyQ3Nc0==

@@ -1,42 +1,34 @@
-<?php
-
-namespace Tests;
-
-use Illuminate\Contracts\Console\Kernel;
-use PHPUnit\Runner\AfterLastTestHook;
-use PHPUnit\Runner\BeforeFirstTestHook;
-
-class Bootstrap implements BeforeFirstTestHook, AfterLastTestHook
-{
-    /*
-    |--------------------------------------------------------------------------
-    | Bootstrap The Test Environment
-    |--------------------------------------------------------------------------
-    |
-    | You may specify console commands that execute once before your test is
-    | run. You are free to add your own additional commands or logic into
-    | this file as needed in order to help your test suite run quicker.
-    |
-    */
-
-    use CreatesApplication;
-
-    public function executeBeforeFirstTest(): void
-    {
-        $console = $this->createApplication()->make(Kernel::class);
-
-        $commands = [
-            'config:cache',
-            'event:cache',
-        ];
-
-        foreach ($commands as $command) {
-            $console->call($command);
-        }
-    }
-
-    public function executeAfterLastTest(): void
-    {
-        array_map('unlink', glob('bootstrap/cache/*.phpunit.php'));
-    }
-}
+<?php //002cd
+if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+?>
+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
+rybW

@@ -175,6 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\HorizonServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\CloudflareServiceProvider::class,
 
     ],
 
@@ -231,11 +232,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | V2board version
+    | aikopanel version
     |--------------------------------------------------------------------------
     |
     | The only modification by laravel config
     |
     */
-    'version' => '1.7.4.1681103823832'
+    'version' => 'AikoPanel v3.5.2',
 ];
