@@ -15,7 +15,7 @@ class MysqlLoggerHandler extends \Monolog\Handler\AbstractProcessingHandler
     {
         parent::__construct($level, $bubble);
     }
-    protected function write($record)
+    protected function write(array $record)
     {
         try {
             if(isset($record["context"]["exception"]) && is_object($record["context"]["exception"])) {
