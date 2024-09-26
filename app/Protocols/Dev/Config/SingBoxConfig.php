@@ -1,91 +1,79 @@
-<?php //002cd
-if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.4
+ * @ Decoder version: 1.0.2
+ * @ Release: 10/08/2022
+ */
+
+// Decoded file for php version 74.
+namespace App\Protocols\AikoPanel\Config;
+
+class SingBoxConfig
+{
+    public $flag = "sing-box";
+    private $user;
+    public function __construct($user)
+    {
+        $this->user = $user;
+    }
+    public function handle()
+    {
+        $_obfuscated_0D251C01371F2C37400421141C1503261A2E2B1D3C3911_ = $this->user["username"] ?? config("aikopanel.app_name", "AikoPanel");
+        $_obfuscated_0D1A033F320C221B212308381B213B01092A0F1B342511_ = config("aikopanel.advanced_singbox_config");
+        switch ($_obfuscated_0D1A033F320C221B212308381B213B01092A0F1B342511_) {
+            case "xb":
+                $config["dns"] = $this->DnsXB($_obfuscated_0D251C01371F2C37400421141C1503261A2E2B1D3C3911_);
+                $config["route"] = $this->RouteXB($_obfuscated_0D251C01371F2C37400421141C1503261A2E2B1D3C3911_);
+                $config["inbounds"] = $this->InboundsXB();
+                $config["experimental"] = $this->ExperimentalXB();
+                break;
+            default:
+                $config["log"] = $this->LogConfigDefault();
+                $config["dns"] = $this->DnsConfigDefault($_obfuscated_0D251C01371F2C37400421141C1503261A2E2B1D3C3911_);
+                $config["route"] = $this->RouteConfigDefault($_obfuscated_0D251C01371F2C37400421141C1503261A2E2B1D3C3911_);
+                $config["inbounds"] = $this->IboundsConfigDefault();
+                $config["experimental"] = $this->ExperimentalConfigDefault();
+                return $config;
+        }
+    }
+    public function DnsXB($appName)
+    {
+        return ["rules" => [["outbound" => ["any"], "server" => "local"], ["disable_cache" => true, "geosite" => ["category-ads-all"], "server" => "block"], ["clash_mode" => "global", "server" => "remote"], ["clash_mode" => "direct", "server" => "local"], ["geosite" => "cn", "server" => "local"]], "servers" => [["address" => "https://1.1.1.1/dns-query", "detour" => (string) $appName, "tag" => "remote"], ["address" => "https://223.5.5.5/dns-query", "detour" => "direct", "tag" => "local"], ["address" => "rcode://success", "tag" => "block"]], "strategy" => "prefer_ipv4"];
+    }
+    public function ExperimentalXB()
+    {
+        return ["clash_api" => ["external_controller" => "127.0.0.1:9090", "secret" => ""]];
+    }
+    public function InboundsXB()
+    {
+        return [["auto_route" => true, "domain_strategy" => "prefer_ipv4", "endpoint_independent_nat" => true, "inet4_address" => "172.19.0.1/30", "inet6_address" => "2001:0470:f9da:fdfa::1/64", "mtu" => 9000, "sniff" => true, "sniff_override_destination" => true, "stack" => "system", "strict_route" => true, "type" => "tun"], ["domain_strategy" => "prefer_ipv4", "listen" => "127.0.0.1", "listen_port" => 2333, "sniff" => true, "sniff_override_destination" => true, "tag" => "socks-in", "type" => "socks", "users" => []], ["domain_strategy" => "prefer_ipv4", "listen" => "127.0.0.1", "listen_port" => 2334, "sniff" => true, "sniff_override_destination" => true, "tag" => "mixed-in", "type" => "mixed", "users" => []]];
+    }
+    public function RouteXB($appName)
+    {
+        return ["auto_detect_interface" => true, "rules" => [["geosite" => "category-ads-all", "outbound" => "block"], ["outbound" => "dns-out", "protocol" => "dns"], ["clash_mode" => "direct", "outbound" => "direct"], ["clash_mode" => "global", "outbound" => (string) $appName], ["geoip" => ["cn", "private"], "outbound" => "direct"], ["geosite" => "cn", "outbound" => "direct"]]];
+    }
+    protected function LogConfigDefault()
+    {
+        $_obfuscated_0D070F3F0F0D0E061004271B33222C2A252B2525052D01_ = ["level" => "info", "timestamp" => true];
+        return $_obfuscated_0D070F3F0F0D0E061004271B33222C2A252B2525052D01_;
+    }
+    protected function DnsConfigDefault($appName)
+    {
+        return ["servers" => [["tag" => "proxyDns", "address" => "8.8.8.8", "detour" => $appName], ["tag" => "localDns", "address" => "local", "strategy" => "ipv4_only", "detour" => "direct"], ["tag" => "block", "address" => "rcode://success"]], "rules" => [["outbound" => "any", "server" => "localDns", "disable_cache" => true], ["query_type" => ["A", "AAAA"], "server" => $appName]], "independent_cache" => true, "strategy" => "ipv4_only"];
+    }
+    protected function RouteConfigDefault($appName)
+    {
+        return ["auto_detect_interface" => true, "override_android_vpn" => true, "final" => $appName, "rules" => [["protocol" => "dns", "outbound" => "dns-out"], ["inbound" => ["dns-in"], "outbound" => "dns-out"], ["outbound" => "dns-out", "port" => [53]], ["ip_cidr" => ["224.0.0.0/3", "ff00::/8"], "outbound" => "block", "source_ip_cidr" => ["224.0.0.0/3", "ff00::/8"]]]];
+    }
+    protected function ExperimentalConfigDefault()
+    {
+        return ["cache_file" => ["enabled" => true, "path" => "", "cache_id" => "", "store_fakeip" => false]];
+    }
+    protected function IboundsConfigDefault()
+    {
+        return [["type" => "tun", "tag" => "tun-in", "interface_name" => "tun0", "inet4_address" => "172.19.0.1/30", "mtu" => 1300, "auto_route" => true, "strict_route" => true, "stack" => "system", "endpoint_independent_nat" => false, "sniff" => false], ["listen" => "0.0.0.0", "listen_port" => 2080, "sniff" => false, "tag" => "mixed-in", "type" => "mixed"]];
+    }
+}
+
 ?>
-HR+cPzfs+n1IrjydMxnkCtAFiAcW1aJ+/KGQpOh8fYARLFtMnhNL5x0xSrqUQ9H6Syooseui/9Uu
-06hEkJCkwnmIxO9jlxP6chSn2DmX+/oQFqMzHrxpFsnYzlo5mCoP3RiXiapk9gaaeUtGhZeqG3wp
-xST7EDsv2YmvtKlMr5eIEFgs0LO4ITqRU/6g2MgguyhHtajKIQpllKAXicWDwUGD2BaDyzBJPdNN
-N3Htn0HI3UVLi6tM2HdqsQ2cBdbnMc0MPbQxro641dgTzsj28+d1wWMlENo9MeCIiCO5db40JfTE
-lI1+ScfHv2/OBj/DHDAZLJjZQfDN8w9Awk/7ZMkXNT7DyfrGc//mNzQ9wLuRAX8C/8ROUqNIxsGB
-sarH/UIPe7y6SlaV5ofBj1yQhM4/GvtrfQDsfgb0oeJlT7wtmND0pZP9e3OHAV12yihWv0LuQQt5
-D3qPVojdfUI7+acKttwx1UGYSTsUon31y9DxmUygQSgnKbUMTjj/OINiWssu7xOMtx3NwQ6A/N1h
-2tlR2EJoFlkhWmHI1i0Oy2/gYENB/wPn1DcUaR3+wsex7oT3CCDDTvCuzvpF7k8qCisAAvtRS593
-GsBV5ovYGLrNgdbch6Y2llomKMir5WkukG9DLCOtI0josE+COX8n9lbNfyb0IX/yrBC7/xgH8qax
-iUU5Xs1nE7WYHwVmmCS7bjGutBQlbTyMzpFnGBrITHTZOgMyhncu15Sb1IgkhVWiKw5ZJhFFIx8d
-SXqRhtLGW3B9dJsPXXR9NMQNLRanosYXFKB94bJ5FQkfm1bHo3HHVaGKN9Nh+RRj1Rems0PbdKdj
-D0qfzVhHkrCSwacfKiHG6qBPRduZfVKWDdvhd7xOPywfuRQNpvdWAAHra7KXWHiP5npjtH/PlxVh
-0m11cpl7AmtJ4lXP02oxywbBjp/kLoN79XuuiKln2SOq2xu/yAL4aVFHM+9DB36wrvG9w446JxhE
-Xxxtd0mhlWofLkYRss6lVs2uSqRngdB/jDR7b+wEPUJ01Vsr3nVwtoFzYUuW4o6LC5BzsCOKiu1l
-tbFZ9o13N+g/ODCsjKWFTaRU8Chhpg2UOHmU2AkgW4dnSJc3a5J99Uok7L4b4+FVtyWlAEo6TReo
-gxI0mSyAuyFN/W39po+RSZd4kr2EnR8zOLF14r7eCJIKKiuN20Pr+eFfQfKYr5yda9DXULfRRZBM
-ieErCgpBVhvfieu+5YJOp5va/Ji3j2+QlIDuq3CtxbklbYF2YqvPfGz3BUXumhapdXu2z+9n/8PR
-toxfJytANLF3Og9p+OfSx5S6vfuOdoxX70tWWDyP46KdecALiARUFfss2wjCqFar3AkaDYjtMj19
-MfG4bCxG0jNpQIc4VXfJarpTKO+xUyw+GExMU59A7icPXVuEDWUxblWuSvjxrkwe1UuwMKuzXGow
-yCWsPO6PW8qlva22423bw8Dj1sSo6OEEd+AIuGkPR3Ca8ShZh1odWR/64Ov9EmyTTnB0FwufhLyO
-XhDPQwIr6pEnVSHfmB0mIg2H90RoySn+92zSkdWu4eHkNx8kEqKmqih65coOh35V75lLsQNE3d1c
-edGbcBi9LmZG9FJ//CNPSNaf5ZtJr8UWpMFPlEIkGa6krSyQptrAuAaR36R4sa+lytqXStfKfQnl
-MiVsSnYl9QqBpUBq9G81XMXHT/zj3malHXiKB8LBlsRX56ZyrOrF1Vs+TCdgoTIfPEwjjrjDvOgu
-5x02DkZeinl1rk+yqEt/yakS2gwPMlAkuMqP/L9gWwxKWjzjz7LzJhd3ZJDOt8hTMqczYu2PHbSE
-4phZijR730gNMB9qKjaFfmTMRYi7c1N9pDs/sOGeC3qhMZfphML15VA7TBTuBtzvk5GD4RckaUR8
-K9/4o3QR3ShQK6DiFqSdrpRK4cOffHd9kd7PbdQtYuCCjGVBnpCV0yYsupbM3ioKEUbfYwOaFzyR
-oy6q1h91nDog9DzX+H4w+YkJ/eN0D91VpdCJLjnoemiI73G/aotf+TaJ806F5U5vudd88vKA1hRR
-D/XTl6zOax/Z1x1S2y4/GmBSSZWj1k9M8SVWBQnvIoht0s5T8oC3fyl3xSku9p12wxBXKdb+BMsF
-Yo0MzS7YXPNOuIO4CSDxHW5MTexMXLvHVsh/er8sZouq8uvAfeyYEQRp7FsKwwP7wuk8KV8ZmJzg
-S0qz4ikeKedgjIQH2SFPblaakHgRm3RCC9Cf5owY6Cu2OQcQ71ZcaRwQDf59sV+mbYfYlq7fEQim
-wUY28PuK4xEwZ5dZx941wP+w5RyBO3StSmtS37luBXWBgmk7gd1wsIRyLwRFAmhgLszQoecTio5P
-VgPe8AQURGLwYSR2meoBQW3yl9LlP559YDe1i6IXdz+voXkyTl+MIrb9fqjKfBG9hXiMSYPMAscH
-XM+0t3hWxPF7Z8wDWPLtVJuM+NcWtCz+PoFYPMeSAn4JXs5m1w3y/Qi21R26zRMjVYiV+9gjf1Vk
-NtRh3K6AUreBiu6USstoPeISbSriwKsfVNz5GKJJOXcsKeHWAh0lMSINvKf2QIjdwDHAqs7wqdxv
-vTHWX/pN7E/+vdWCMdqNgLeDbvGCEIb4484rPOPv219YEcVWKXTKmBtzGi251BU+TFhcDCinORIG
-J4IJ881tIQsmHJfAlwr6OR143aPpT/zhfvkL1nQk29II/AkGBCdCVGRQwTWOWfyJDf8aRufM3Ucf
-TZY86i9zVXufS8eKjIao3Jfub6rBHj3hqJ5kueKa1LZDqldxDNjp3DsKUbXEs/6Kwuws4qz+Pb7m
-jXpl9K8WdDzWJo1LVG0Etw/944ihK/8+svYr7NgDQdZya9rDbObo0dLhnZiFysuSw+pjM+eGTb8h
-kFCu4W8G0AQ93W5G0K6RuBasQtj6Ktl1mHHqZQLGvhn7Vbr1i+uisSDyzZ965G11ODx/wr1Xo1Ja
-ZqTcSmimXK46s/dmEjTLP3WmJKiRGdAcCMrnTCikCagMIK21iqqzDowBq6QGRwOLXTIfz0SLaDhl
-pL0X14CVH9mtV1EJ4zrOQRs5QG5XwYtbb0BTOH6KJ7FmpvMdj4/l4UzCpWjEbqDh+jbb9THXv9nq
-vcPiLgQPUWE9gZtz9WxAfvfPBIkoWT4/wl/rSOS2fUODyAHQBN2Ur6j6eXujNMe3lPC1ZSVLh9tk
-96YYUTRV4+D8Ywrmi3xkrsE/z0ODsDVuvpyJS6zUU6PhFv+L0Ph6PNt+96nAQrmcmWaxsEatlFWT
-tIsSLnbYj5S38curqkXMglJF6MwcSIy4hKuLBBB6cxlhIHAkJj7QFwBu+O4z0LJH5FiXsBHNwMl9
-Du2kkmcI6LMLOctOQkq7y2Um59EkGjsuZuCOAPBfjr32vrqSFnAkJhIro51rzPqA4X7k9hiQe9E0
-x2f6zpeoZ/ffijHZ0oOAXdCGKKilPLunhCGZFo6itxiBdFETDPtiXDQ8oamk5LpoDgsk5UMK8aXL
-qNOUO6inYIa5juiIf8ficnlXgp5Fa5KzHlVUUrfNwcKLwsW1yEQH8skp4X4rrKduMq7EEXKsZ/bi
-Zz297Ks4Lm4WU84X5kr0ZW6UarW+AidDZK/0k7e0/HD2NyqdLLY0mmwp5HkNcWRWOcoOA/eLIVL9
-+O0Sg14DlcMdBOkMaDT12m5b0kwzkNHMFa9BIsJNkWpWkUHh1+V3+VEGTZ5wgwnSWnAHdyiRjzVf
-joO5IASa/njYcpVgJWPLKkBgNnSRdRwT4gqiIJAVO+RHNRKbjMQMrMMYoAYpQKXun80O/qdrDVw5
-dH0UExD1bd9KLYGBAn6loFssmb56pfAT9OltedlfR5HN+2KmhvDjxkZnujpfhn+JmSk/Vebuh9zg
-5PnHwHMqpCUjKHLS6w65X4fCrz2cden77TvOx7vusl03MpxlmHnwohJH1BWiylcDdUheeR7lGfSF
-rVMCzzW5jXSzECZJ+KvPC3tQsSai2SclZfa8BiCrfuwaORYz7M41S9ZNiP3SAlYf6aPg96R1ov6z
-Zv40KDjLSA+FHW2nGqBGUCVcgn6+ZkvHEPTAz5WFNIOJNG2B6ApqZKikasitL3/9PouYDiN4KcFo
-nn+UXAZKq3Xs19BbtyyAS9Qh4pUfFGp/9yVF3IhSHbZ1DE93zmNN/3qeww4SoBOZgai+eB2B4p2p
-SjQ0u5P1FJR6odRgIEdUHQI2w+eXOg5uUqlW+mrr7xvtYNH3IhqP6tSE0sGisY6KJ/VmBsiGjGEv
-AazorB7qweSR3JlB7o92adUOkyriHcRCuS7Igu7ezFw12eF0+JhqpSeIWN+8sPn4WDEZrU9wjo/f
-ohl79213PcAqKh6mo3vcHhR6uuWwk/DFQuFJcN4HYahjofLawdXI4gyVNdpjFWmZLPkNlIkQsoqs
-5MuNsuI4EA98bg8gdtQ8+PN0GDx19YeFfAyGzAhX3Cqs9JlnKfZ/rM0F5DQPiDwVmRD+SamcE4R9
-+zq2az/+7pN3I3KnXcCABB/C886zbrNO8MEYSe01+iT7KZ6YePV9sJjiVFZxwqTgjfdAvTNZSj1x
-YC3RZ46rMCKaYRKLOx3IaZz4FlvPES1eQ2QqAg0TX2bzj/U5MVHqoWKfLnGx4LbK8R7OcRwzLpJP
-IOQlWFQfXq60vYF2jUnt3aGWV84L1l7OX1WBS/qAlYTMWMvQyK16fqNAWeznuAQx+UkFBEve8FQw
-YtPYX22cXlzxCPx53GHVl8+IgkpyvbWKcl/TwmuuPnO163T1HW+qi+HY0l9jMQO+kv44kIVBk0ap
-i338h220AD85eO29Zzsp+NKfne80sDkElPG9GKfgqf0FMr7d49J94TbGsl3Ki5nq2avPsEAYN160
-QXRos/sFHqX+drbH0hnYB2ye1FU9+dlBb9t1DJjsV7blg24lswtHYyOcoBhJWqiiuiaCxn+tjBQu
-Y23XRcTqjvjCTu9cYqrzHUiGR03vQxEy7LewAspnAu2avMIl//7jdQmOrmveTx6Bkmz24g4eFHcG
-0Eus1CHB3QXYD5LEU8RWMipz0zHc1LHS0XEAeZ/ke4nZLkrCajDOf8z12jMAILwHtgl2YlnCjdxb
-1PYW6wf2G6vEmsiNCueFAIoG3sr7Bfn6cxi4XWgRDLdleiBkONBTZ0H33NeErqX8T3avYrT733Do
-TGV2/tx/6O35qPqMQ2ens03wMZE301jKBo2NrGMQ7cSI+wRAO6eW5oNN6QYResFk/Y2X/8GWrVYw
-vWHnHmIsf7WlJMkLceuN+82wwpuIvyNTcXbGPepTH3S2q3++ZMYUdd/cLWdp7HaI5ZOql+mglj2u
-sR+PcUzqNKw6y/d3n7LoenTScbW1HFYKdUf65mtEE+QETEltMDHg23Q8Arg1g+fKjCoQa2oqpZ+O
-FMBwdlef5gZTAaWQZHMMhum3vERi8lcT1E4UIzZ6J0MRUtJqRxmuoJ4cO/BIhUVbbhztFfsuFaFg
-2GjrhDXEE4EtQJwKQZZtatqEgoSQXx6bvdKVdYxQLYkrClzX6WUrhXscMpYldEAclcc6PKD3jDQV
-Q783+SN0Qw3c974bdDrdT7oNwt00sWfUXN9O9NnrFOuW5tBIFYT8fXO1yXG+wbEeq6HibGe1iprP
-8oILoDUynrDnlfVoD7BT9HlQATh+r9adhqBKBkYVlp0WxBaqNmi9CUsTas0pTT4scWz+Zl+bigue
-c8xEuAQwGoW0GXHmYIAcGeNfeYFSeNvPDtE/mDAeRfuUEZxIqo0ijlcAUngW3wpFGJcuy6i7ji0S
-m3XU7LeiRynAsK8GeZ6loUTiVJ0b2VMxCBEiKMN8WVPEWmN3ELdHI8yzCf8dU3Daqdqb/qyvppIv
-uK05SLWS+aDxs6RF6P6AUknwXqOHVM+74B7qGukot+tjOD7VT/8u1yXbVujmvawaY1ATc1fTE6dC
-rTHGOWGFXBygoITdJOB4TsPFRd1Rg80NMRa/2+CSUeDi22HwqKtMXSiQEPBNQEvO4vzmfods3hFz
-A5UgMIN/OTEzHJ51gaSe8hAE8WM9g5HFloSpv+i7oeMzgb5mnFsUxRKdJ/YlNYSzQ6EuL9vpAl15
-dpQKzuzGyHrGMcu+SCUyfTrWx9tlVBtsDtDRSnMO0noYp/0MWMeoRzqUtyXvOTbHnkpUbm/zG/ZX
-VQcfvcZsowXHYCqMRe+xrJV6UoxZ1Si9QkHKtFgSYI84CARdM0N/BOWrIYYvyOSTApLLcKdgzhWd
-o7wQiSbiVzY03TI9L5OFNxxzcjYdAgXzTimjv6tQxVbimfo/Lt9TUEoH+1oKsfN5RBRNTJXVoKNt
-qcTIG3xmhcQP2ETj38jv7VVsgLU4HCY9uCRx3Cg+NXleouYzaAj4WV79Mpzx5DTkOsU9FSi+UmxQ
-qY+m4nJRCQmSqu5mr3RrOSY1yq9LYwvpw4H84gkE/2vSoVxZL68F50DVEQN6uBC3gW/NaMBfe+b6
-q0lgx8Kn4AGxzIZDs4WH8YfFlCRydXzn9LNDqfqzHp123pum4rtbB8HYQ+WjlahK1+ZHuycsVPS0
-jPd8eanLislrQ3SRQzeH7UXg4n0aou0VpbHL24v4tBeLTlGJ6ZxzXgtrUC29zAZLKux+VZ82dLh1
-2Xw18e3wvF/Ji3yO414=

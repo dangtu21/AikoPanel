@@ -1,136 +1,155 @@
-<?php //002cd
-if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.4
+ * @ Decoder version: 1.0.2
+ * @ Release: 10/08/2022
+ */
+
+// Decoded file for php version 74.
+namespace App\Protocols\Dev;
+
+class Passwall
+{
+    public $flag = "passwall";
+    private $servers;
+    private $user;
+    public function __construct($user, $servers)
+    {
+        $this->user = $user;
+        $this->servers = $servers;
+    }
+    public function handle()
+    {
+        $servers = $this->servers;
+        $user = $this->user;
+        $_obfuscated_0D080F380125280D29073C0B1631011E3D32180C1B1732_ = "";
+        foreach ($servers as $_obfuscated_0D1E08373D0613281B195B10390B0A0113053B120E0601_) {
+            if($_obfuscated_0D1E08373D0613281B195B10390B0A0113053B120E0601_["type"] === "vmess") {
+                $_obfuscated_0D080F380125280D29073C0B1631011E3D32180C1B1732_ .= self::buildVmess($user["uuid"], $_obfuscated_0D1E08373D0613281B195B10390B0A0113053B120E0601_);
+            }
+            if($_obfuscated_0D1E08373D0613281B195B10390B0A0113053B120E0601_["type"] === "vless") {
+                $_obfuscated_0D080F380125280D29073C0B1631011E3D32180C1B1732_ .= self::buildVless($user["uuid"], $_obfuscated_0D1E08373D0613281B195B10390B0A0113053B120E0601_);
+            }
+            if($_obfuscated_0D1E08373D0613281B195B10390B0A0113053B120E0601_["type"] === "shadowsocks") {
+                $_obfuscated_0D080F380125280D29073C0B1631011E3D32180C1B1732_ .= self::buildShadowsocks($user["uuid"], $_obfuscated_0D1E08373D0613281B195B10390B0A0113053B120E0601_);
+            }
+            if($_obfuscated_0D1E08373D0613281B195B10390B0A0113053B120E0601_["type"] === "trojan") {
+                $_obfuscated_0D080F380125280D29073C0B1631011E3D32180C1B1732_ .= self::buildTrojan($user["uuid"], $_obfuscated_0D1E08373D0613281B195B10390B0A0113053B120E0601_);
+            }
+        }
+        return base64_encode($_obfuscated_0D080F380125280D29073C0B1631011E3D32180C1B1732_);
+    }
+    public static function buildShadowsocks($password, $server)
+    {
+        $_obfuscated_0D240A0514021D0E06340317112A2212241F29153E1F32_ = rawurlencode($server["name"]);
+        $_obfuscated_0D1F084040091025030A24192C011F40012E1240341811_ = str_replace(["+", "/", "="], ["-", "_", ""], base64_encode($server["cipher"] . ":" . $password));
+        return "ss://" . $_obfuscated_0D1F084040091025030A24192C011F40012E1240341811_ . "@" . $server["host"] . ":" . $server["port"] . "#" . $_obfuscated_0D240A0514021D0E06340317112A2212241F29153E1F32_ . "\r\n";
+    }
+    public static function buildVmess($uuid, $server)
+    {
+        $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_ = ["v" => "2", "ps" => $server["name"], "add" => $server["host"], "port" => (string) $server["port"], "id" => $uuid, "aid" => "0", "net" => $server["network"], "type" => "none", "host" => "", "path" => "", "tls" => $server["tls"] ? "tls" : ""];
+        if($server["tls"] && $server["tlsSettings"]) {
+            $_obfuscated_0D1C0F19150B050E143C1A1B33363F0C1D0A0831193032_ = $server["tlsSettings"];
+            if(isset($_obfuscated_0D1C0F19150B050E143C1A1B33363F0C1D0A0831193032_["serverName"]) && !empty($_obfuscated_0D1C0F19150B050E143C1A1B33363F0C1D0A0831193032_["serverName"])) {
+                $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["sni"] = $_obfuscated_0D1C0F19150B050E143C1A1B33363F0C1D0A0831193032_["serverName"];
+            }
+        }
+        if((string) $server["network"] === "tcp") {
+            $_obfuscated_0D3F0127381F133007280319221D250C290D0A0A352B11_ = $server["networkSettings"];
+            if(isset($_obfuscated_0D3F0127381F133007280319221D250C290D0A0A352B11_["header"]["type"])) {
+                $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["type"] = $_obfuscated_0D3F0127381F133007280319221D250C290D0A0A352B11_["header"]["type"];
+            }
+            if(isset($_obfuscated_0D3F0127381F133007280319221D250C290D0A0A352B11_["header"]["request"]["path"][0])) {
+                $_obfuscated_0D11183C2C323540141B243C300C10100D3B16262B3932_ = $_obfuscated_0D3F0127381F133007280319221D250C290D0A0A352B11_["header"]["request"]["path"];
+                $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["path"] = $_obfuscated_0D11183C2C323540141B243C300C10100D3B16262B3932_[array_rand($_obfuscated_0D11183C2C323540141B243C300C10100D3B16262B3932_)];
+            }
+            if(isset($_obfuscated_0D3F0127381F133007280319221D250C290D0A0A352B11_["header"]["request"]["headers"]["Host"][0])) {
+                $_obfuscated_0D1E0912301435141A013F0A0C282B2F1C03052D403032_ = $_obfuscated_0D3F0127381F133007280319221D250C290D0A0A352B11_["header"]["request"]["headers"]["Host"];
+                $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["host"] = $_obfuscated_0D1E0912301435141A013F0A0C282B2F1C03052D403032_[array_rand($_obfuscated_0D1E0912301435141A013F0A0C282B2F1C03052D403032_)];
+            }
+        }
+        if((string) $server["network"] === "ws") {
+            $_obfuscated_0D3B1A310D1E0E300D5B32273306144019350811041632_ = $server["networkSettings"];
+            if(isset($_obfuscated_0D3B1A310D1E0E300D5B32273306144019350811041632_["path"])) {
+                $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["path"] = $_obfuscated_0D3B1A310D1E0E300D5B32273306144019350811041632_["path"];
+            }
+            if(isset($_obfuscated_0D3B1A310D1E0E300D5B32273306144019350811041632_["headers"]["Host"])) {
+                $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["host"] = $_obfuscated_0D3B1A310D1E0E300D5B32273306144019350811041632_["headers"]["Host"];
+            }
+        }
+        if((string) $server["network"] === "grpc") {
+            $_obfuscated_0D02035B261D3E1B3F085B062D1C1B2515291232043601_ = $server["networkSettings"];
+            if(isset($_obfuscated_0D02035B261D3E1B3F085B062D1C1B2515291232043601_["serviceName"])) {
+                $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["path"] = $_obfuscated_0D02035B261D3E1B3F085B062D1C1B2515291232043601_["serviceName"];
+            }
+        }
+        return "vmess://" . base64_encode(json_encode($_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_)) . "\r\n";
+    }
+    public static function buildVless($uuid, $server)
+    {
+        $_obfuscated_0D1606391D130C1A0C050C072A40072A101507082E4001_ = $server["host"];
+        $port = $server["port"];
+        $_obfuscated_0D240A0514021D0E06340317112A2212241F29153E1F32_ = $server["name"];
+        $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_ = ["mode" => "multi", "security" => "", "encryption" => "none", "type" => $server["network"]];
+        if($server["flow"]) {
+            $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["flow"] = $server["flow"];
+        }
+        if($server["tls"]) {
+            switch ($server["tls"]) {
+                case 1:
+                    if($server["tls_settings"]) {
+                        $_obfuscated_0D1C0F19150B050E143C1A1B33363F0C1D0A0831193032_ = $server["tls_settings"];
+                        if(isset($_obfuscated_0D1C0F19150B050E143C1A1B33363F0C1D0A0831193032_["server_name"]) && !empty($_obfuscated_0D1C0F19150B050E143C1A1B33363F0C1D0A0831193032_["server_name"])) {
+                            $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["sni"] = $_obfuscated_0D1C0F19150B050E143C1A1B33363F0C1D0A0831193032_["server_name"];
+                        }
+                        $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["security"] = "tls";
+                    }
+                    break;
+                case 2:
+                    $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["security"] = "reality";
+                    $_obfuscated_0D14161E2902213418231E2A2C342F241913172B031122_ = $server["tls_settings"];
+                    if(($_obfuscated_0D14161E2902213418231E2A2C342F241913172B031122_["public_key"] ?? NULL) && ($_obfuscated_0D14161E2902213418231E2A2C342F241913172B031122_["short_id"] ?? NULL) && ($_obfuscated_0D14161E2902213418231E2A2C342F241913172B031122_["server_name"] ?? NULL)) {
+                        $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["pbk"] = $_obfuscated_0D14161E2902213418231E2A2C342F241913172B031122_["public_key"];
+                        $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["sid"] = $_obfuscated_0D14161E2902213418231E2A2C342F241913172B031122_["short_id"];
+                        $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["sni"] = $_obfuscated_0D14161E2902213418231E2A2C342F241913172B031122_["server_name"];
+                        $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["servername"] = $_obfuscated_0D14161E2902213418231E2A2C342F241913172B031122_["server_name"];
+                        $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["spx"] = "/";
+                        $_obfuscated_0D332F2E192F1D120F37053B1E121B13392D15151A1201_ = ["chrome", "firefox", "safari", "ios", "edge", "qq"];
+                        $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["fp"] = $_obfuscated_0D332F2E192F1D120F37053B1E121B13392D15151A1201_[rand(0, count($_obfuscated_0D332F2E192F1D120F37053B1E121B13392D15151A1201_) - 1)];
+                    }
+                    break;
+            }
+        }
+        if((string) $server["network"] === "ws") {
+            $_obfuscated_0D3B1A310D1E0E300D5B32273306144019350811041632_ = $server["network_settings"];
+            if(isset($_obfuscated_0D3B1A310D1E0E300D5B32273306144019350811041632_["path"])) {
+                $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["path"] = $_obfuscated_0D3B1A310D1E0E300D5B32273306144019350811041632_["path"];
+            }
+            if(isset($_obfuscated_0D3B1A310D1E0E300D5B32273306144019350811041632_["headers"]["Host"])) {
+                $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["host"] = $_obfuscated_0D3B1A310D1E0E300D5B32273306144019350811041632_["headers"]["Host"];
+            }
+        }
+        if((string) $server["network"] === "grpc") {
+            $_obfuscated_0D02035B261D3E1B3F085B062D1C1B2515291232043601_ = $server["network_settings"];
+            if(isset($_obfuscated_0D02035B261D3E1B3F085B062D1C1B2515291232043601_["serviceName"])) {
+                $_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_["serviceName"] = $_obfuscated_0D02035B261D3E1B3F085B062D1C1B2515291232043601_["serviceName"];
+            }
+        }
+        $user = $uuid . "@" . $_obfuscated_0D1606391D130C1A0C050C072A40072A101507082E4001_ . ":" . $port;
+        $query = http_build_query($_obfuscated_0D1C2E3B252D3B2C3E162B17052813182B2B121D092D22_);
+        $_obfuscated_0D3D5C1C1B2825373E182E07050209162C2B3527355B32_ = urlencode($_obfuscated_0D240A0514021D0E06340317112A2212241F29153E1F32_);
+        $link = sprintf("vless://%s?%s#%s\r\n", $user, $query, $_obfuscated_0D3D5C1C1B2825373E182E07050209162C2B3527355B32_);
+        return $link;
+    }
+    public static function buildTrojan($password, $server)
+    {
+        $_obfuscated_0D240A0514021D0E06340317112A2212241F29153E1F32_ = rawurlencode($server["name"]);
+        $query = http_build_query(["allowInsecure" => $server["allow_insecure"], "peer" => $server["server_name"], "sni" => $server["server_name"]]);
+        $_obfuscated_0D080F380125280D29073C0B1631011E3D32180C1B1732_ = "trojan://" . $password . "@" . $server["host"] . ":" . $server["port"] . "?" . $query . "#" . $_obfuscated_0D240A0514021D0E06340317112A2212241F29153E1F32_;
+        $_obfuscated_0D080F380125280D29073C0B1631011E3D32180C1B1732_ .= "\r\n";
+        return $_obfuscated_0D080F380125280D29073C0B1631011E3D32180C1B1732_;
+    }
+}
+
 ?>
-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

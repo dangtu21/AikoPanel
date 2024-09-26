@@ -1,37 +1,30 @@
-<?php //002cd
-if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.4
+ * @ Decoder version: 1.0.2
+ * @ Release: 10/08/2022
+ */
+
+// Decoded file for php version 74.
+namespace App\Console\Commands;
+
+class CheckOrder extends \Illuminate\Console\Command
+{
+    protected $signature = "check:order";
+    protected $description = "Nhiệm vụ kiểm tra đơn hàng";
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    public function handle()
+    {
+        ini_set("memory_limit", -1);
+        $_obfuscated_0D3B213C1229390614143B2C1B102F0C14311E0A043211_ = \App\Models\Order::whereIn("status", [0, 1])->orderBy("created_at", "ASC")->get();
+        foreach ($_obfuscated_0D3B213C1229390614143B2C1B102F0C14311E0A043211_ as $_obfuscated_0D210A372B40120E210A0C400F5C1C3D1A360B40083101_) {
+            \App\Jobs\OrderHandleJob::dispatch($_obfuscated_0D210A372B40120E210A0C400F5C1C3D1A360B40083101_->trade_no);
+        }
+    }
+}
+
 ?>
-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

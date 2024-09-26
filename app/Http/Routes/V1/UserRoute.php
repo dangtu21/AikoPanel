@@ -1,73 +1,62 @@
-<?php //002cd
-if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.4
+ * @ Decoder version: 1.0.2
+ * @ Release: 10/08/2022
+ */
+
+// Decoded file for php version 74.
+namespace App\Http\Routes\V1;
+
+class UserRoute
+{
+    public function map(\Illuminate\Contracts\Routing\Registrar $router)
+    {
+        $router->group(["prefix" => "user", "middleware" => "user"], function ($router) {
+            $router->get("/resetSecurity", "V1\\User\\UserController@resetSecurity");
+            $router->get("/info", "V1\\User\\UserController@info");
+            $router->get("/applications", "V1\\User\\UserController@Applications");
+            $router->post("/changePassword", "V1\\User\\UserController@changePassword");
+            $router->post("/changeSNI", "V1\\User\\UserController@changeSNI");
+            $router->post("/changeAvatar", "V1\\User\\UserController@changeAvatar");
+            $router->post("/changeUserName", "V1\\User\\UserController@changeUserName");
+            $router->post("/update", "V1\\User\\UserController@update");
+            $router->get("/getSubscribe", "V1\\User\\UserController@getSubscribe");
+            $router->get("/getStat", "V1\\User\\UserController@getStat");
+            $router->get("/checkLogin", "V1\\User\\UserController@checkLogin");
+            $router->post("/transfer", "V1\\User\\UserController@transfer");
+            $router->post("/getQuickLoginUrl", "V1\\User\\UserController@getQuickLoginUrl");
+            $router->get("/getActiveSession", "V1\\User\\UserController@getActiveSession");
+            $router->post("/removeActiveSession", "V1\\User\\UserController@removeActiveSession");
+            $router->post("/order/save", "V1\\User\\OrderController@save");
+            $router->post("/order/reCharge", "V1\\User\\OrderController@reCharge");
+            $router->post("/order/checkout", "V1\\User\\OrderController@checkout");
+            $router->get("/order/check", "V1\\User\\OrderController@check");
+            $router->get("/order/detail", "V1\\User\\OrderController@detail");
+            $router->get("/order/fetch", "V1\\User\\OrderController@fetch");
+            $router->get("/order/getPaymentMethod", "V1\\User\\OrderController@getPaymentMethod");
+            $router->post("/order/cancel", "V1\\User\\OrderController@cancel");
+            $router->get("/plan/fetch", "V1\\User\\PlanController@fetch");
+            $router->get("/invite/save", "V1\\User\\InviteController@save");
+            $router->get("/invite/fetch", "V1\\User\\InviteController@fetch");
+            $router->get("/invite/details", "V1\\User\\InviteController@details");
+            $router->get("/notice/fetch", "V1\\User\\NoticeController@fetch");
+            $router->post("/ticket/reply", "V1\\User\\TicketController@reply");
+            $router->post("/ticket/close", "V1\\User\\TicketController@close");
+            $router->post("/ticket/save", "V1\\User\\TicketController@save");
+            $router->get("/ticket/fetch", "V1\\User\\TicketController@fetch");
+            $router->post("/ticket/withdraw", "V1\\User\\TicketController@withdraw");
+            $router->get("/server/fetch", "V1\\User\\ServerController@fetch");
+            $router->post("/coupon/check", "V1\\User\\CouponController@check");
+            $router->get("/telegram/getBotInfo", "V1\\User\\TelegramController@getBotInfo");
+            $router->get("/comm/config", "V1\\User\\CommController@config");
+            $router->Post("/comm/getStripePublicKey", "V1\\User\\CommController@getStripePublicKey");
+            $router->get("/knowledge/fetch", "V1\\User\\KnowledgeController@fetch");
+            $router->get("/knowledge/getCategory", "V1\\User\\KnowledgeController@getCategory");
+            $router->get("/stat/getTrafficLog", "V1\\User\\StatController@getTrafficLog");
+        });
+    }
+}
+
 ?>
-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
-jACRGrw4aOWbyIsfFwQoFGP/um==

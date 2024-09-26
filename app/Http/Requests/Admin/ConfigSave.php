@@ -1,92 +1,25 @@
-<?php //002cd
-if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.4
+ * @ Decoder version: 1.0.2
+ * @ Release: 10/08/2022
+ */
+
+// Decoded file for php version 74.
+namespace App\Http\Requests\Admin;
+
+class ConfigSave extends \Illuminate\Foundation\Http\FormRequest
+{
+    const RULES = ["invite_force" => "in:0,1", "invite_commission" => "integer", "invite_gen_limit" => "integer", "invite_never_expire" => "in:0,1", "commission_first_time_enable" => "in:0,1", "commission_auto_check_enable" => "in:0,1", "commission_auto_check_min" => "nullable|numeric|max:4320", "commission_withdraw_limit" => "nullable|numeric", "commission_withdraw_method" => "nullable|array", "withdraw_close_enable" => "in:0,1", "commission_distribution_enable" => "in:0,1", "commission_distribution_l1" => "nullable|numeric", "commission_distribution_l2" => "nullable|numeric", "commission_distribution_l3" => "nullable|numeric", "logo" => "nullable|url", "background_url" => "nullable|url", "custom_html" => "nullable", "force_https" => "in:0,1", "stop_register" => "in:0,1", "app_name" => "", "app_description" => "", "app_url" => "nullable|url", "sub_app_url" => "nullable|array", "subscribe_url" => "nullable", "try_out_enable" => "in:0,1", "try_out_plan_id" => "integer", "try_out_hour" => "numeric", "tos_url" => "nullable|url", "currency" => "", "currency_symbol" => "", "sub_domain" => "nullable|array", "staff_generate_user_limit" => "integer", "collaborator_enable" => "in:0,1", "cloudflare_ns_1" => "nullable", "cloudflare_ns_2" => "nullable", "exchange_enable" => "in:0,1", "getorder_enable" => "in:0,1", "node_traffic_today" => "in:0,1", "user_traffic_today" => "in:0,1", "node_traffic_yesterday" => "in:0,1", "user_traffic_yesterday" => "in:0,1", "naptien_on" => "in:0,1", "min_recharge_amount" => "nullable|numeric", "max_recharge_amount" => "nullable|numeric", "plan_change_enable" => "in:0,1", "reset_traffic_method" => "in:0,1,2,3,4,5", "surplus_enable" => "in:0,1", "new_order_event_id" => "in:0,1", "renew_order_event_id" => "in:0,1", "change_order_event_id" => "in:0,1", "show_info_to_server_enable" => "in:0,1", "arrange_server_enable" => "in:0,1", "interval_order_time" => "integer", "show_client_info_plan" => "in:0,1", "show_client_info_used_traffic" => "in:0,1", "show_client_info_expire_at" => "in:0,1", "show_client_info_time_getsubscribe" => "in:0,1", "show_total_user_enable" => "in:0,1", "show_client_info_sni" => "in:0,1", "overdue_custom_message" => "nullable", "name_account" => "nullable", "bank_id" => "nullable", "number_account" => "nullable", "keyword_account" => "nullable", "deduct_commission_enable" => "in:0,1", "server_token" => "nullable|min:16", "server_pull_interval" => "integer", "server_push_interval" => "integer", "server_alive_interval" => "integer", "frontend_theme" => "", "frontend_theme_sidebar" => "nullable|in:dark,light", "frontend_theme_header" => "nullable|in:dark,light", "frontend_theme_color" => "nullable|in:default,darkblue,black,green", "frontend_background_url" => "nullable|url", "email_template" => "", "email_host" => "", "email_port" => "", "email_username" => "", "email_password" => "", "email_encryption" => "", "email_from_address" => "", "email_payments_success" => "in:0,1", "telegram_bot_enable" => "in:0,1", "telegram_bot_token" => "", "telegram_discuss_id" => "", "telegram_channel_id" => "", "telegram_discuss_link" => "nullable|url", "zalo_discuss_link" => "nullable|url", "report_infomartion_daily" => "in:0,1", "report_user_traffic_today" => "in:0,1", "interval_report_user_traffic_to_admin_today" => "nullable|integer|min:1|max:60", "id_group_admin_report_traffic_user_today" => "", "interval_report_user_traffic_to_user_today" => "nullable|integer|min:1|max:60", "id_group_user_report_traffic_user_today" => "", "report_node_traffic_today" => "in:0,1", "interval_report_node_traffic_to_admin_today" => "nullable|integer|min:1|max:60", "id_group_admin_report_traffic_node_today" => "", "interval_report_node_traffic_to_user_today" => "nullable|integer|min:1|max:60", "id_group_user_report_traffic_node_today" => "", "report_node_online" => "in:0,1", "interval_report_node_online_to_admin_today" => "nullable|integer|min:1|max:60", "id_group_admin_report_node_online_today" => "", "interval_report_node_online_to_user_today" => "nullable|integer|min:1|max:60", "id_group_user_report_node_online_today" => "", "interval_check_server" => "nullable|integer|min:1|max:60", "check_node_online_admin" => "in:0,1", "auto_stop_node" => "in:0,1", "app_personalized_enable" => "in:0,1", "windows_name" => "", "windows_version" => "", "windows_logo_url" => "", "windows_download_url" => "", "macos_name" => "", "macos_version" => "", "macos_logo_url" => "", "macos_download_url" => "", "ios_name" => "", "ios_version" => "", "ios_logo_url" => "", "ios_download_url" => "", "android_name" => "", "android_version" => "", "android_logo_url" => "", "android_download_url" => "", "app_windows_enable" => "in:0,1", "app_windows_cfa" => "in:0,1", "app_windows_nekoray" => "in:0,1", "app_windows_netch" => "in:0,1", "app_windows_v2rayn" => "in:0,1", "app_windows_karing" => "in:0,1", "app_macos_enable" => "in:0,1", "app_macos_sb" => "in:0,1", "app_macos_clashx" => "in:0,1", "app_macos_cfw" => "in:0,1", "app_macos_shadowrocket" => "in:0,1", "app_macos_qx" => "in:0,1", "app_macos_karing" => "in:0,1", "app_ios_enable" => "in:0,1", "app_ios_sb" => "in:0,1", "app_ios_shadowrocket" => "in:0,1", "app_ios_qx" => "in:0,1", "app_ios_surge" => "in:0,1", "app_ios_stash" => "in:0,1", "app_ios_streisand" => "in:0,1", "app_ios_karing" => "in:0,1", "app_android_enable" => "in:0,1", "app_android_sb" => "in:0,1", "app_android_cfa" => "in:0,1", "app_android_nekobox" => "in:0,1", "app_android_meta" => "in:0,1", "app_android_surfboard" => "in:0,1", "app_android_v2rayng" => "in:0,1", "email_whitelist_enable" => "in:0,1", "email_whitelist_suffix" => "nullable|array", "email_gmail_limit_enable" => "in:0,1", "recaptcha_enable" => "in:0,1", "recaptcha_key" => "", "recaptcha_site_key" => "", "email_verify" => "in:0,1", "safe_mode_enable" => "in:0,1", "register_limit_by_ip_enable" => "in:0,1", "register_limit_count" => "integer", "register_limit_expire" => "integer", "secure_path" => "min:8|regex:/^[\\w-]*\$/", "staff_path" => "min:8|regex:/^[\\w-]*\$/", "password_limit_enable" => "in:0,1", "password_limit_count" => "integer", "password_limit_expire" => "integer", "ip_prioritylist" => "nullable", "ip_blocklist" => "nullable", "ua_blocklist" => "nullable", "country_allowlist" => "nullable", "advanced_singbox_config" => "", "license" => "", "maintenance_mode_enable" => "in:0,1", "session_ttl" => "nullable|integer", "admin_session_ttl" => "in:0,1", "interval_clear_user" => "integer|in:0,1,2,3,4", "interval_backup_database" => "nullable|integer|min:1|max:23", "database_telegram_id" => "", "cloudflare_email" => "", "cloudflare_api_key" => "", "cloudflare_zone_id" => "", "appleid_custom_url" => "nullable|url", "appleid_api" => "nullable|url", "appleid_quanx" => "nullable"];
+    public function rules()
+    {
+        return self::RULES;
+    }
+    public function messages()
+    {
+        return ["app_url.url" => "Định dạng URL trang web không đúng, phải chứa http(s)://", "subscribe_url.url" => "Định dạng URL đăng ký không đúng, phải chứa http(s)://", "server_token.min" => "Độ dài khóa giao tiếp phải lớn hơn 16 ký tự", "tos_url.url" => "Định dạng URL Điều khoản Dịch vụ không đúng, phải chứa http(s)://", "telegram_discuss_link.url" => "Địa chỉ nhóm Telegram phải là định dạng URL, phải chứa http(s)://", "zalo_discuss_link.url" => "Địa chỉ nhóm Zalo phải là định dạng URL, phải chứa http(s)://", "logo.url" => "Định dạng URL LOGO không đúng, phải chứa https(s)://", "background_url.url" => "Định dạng Url Background không đúng, phải chứa https(s)://", "secure_path.min" => "Độ dài đường dẫn an toàn ít nhất phải là 8 ký tự", "secure_path.regex" => "Đường dẫn an toàn chỉ có thể là chữ cái hoặc số", "commission_auto_check_min.numeric" => "Đơn vị phải là số phút", "commission_auto_check_min.max" => "số phút không được vượt quá 4320 phút. tương đương với 3 ngày", "staff_path.min" => "Độ dài đường dẫn liên kết ít nhất phải là 8 ký tự", "staff_path.regex" => "Đường dẫn liên kết chỉ có thể là chữ cái hoặc số", "session_ttl.integer" => "Thời gian hết hạn phiên đăng nhập phải là số nguyên", "admin_session_ttl.in" => "Thời gian hết hạn phiên đăng nhập của quản trị viên không hợp lệ", "interval_backup_database.integer" => "Thời gian sao lưu cơ sở dữ liệu phải là số nguyên", "interval_backup_database.min" => "Thời gian sao lưu cơ sở dữ liệu phải lớn hơn 0", "interval_backup_database.max" => "Thời gian sao lưu cơ sở dữ liệu phải nhỏ hơn 24", "appleid_api.url" => "Định dạng URL API AppleID không đúng, phải chứa http(s)://", "appleid_custom_url.url" => "Định dạng URL AppleID không đúng, phải chứa http(s)://", "interval_clear_user.integer" => "Thời gian xóa người dùng phải là số nguyên", "interval_clear_user.in" => "Thời gian xóa người dùng không hợp lệ", "report_node_online" => "Báo cáo trạng thái nút không hợp lệ", "report_user_traffic_today.in" => "Báo cáo lưu lượng người dùng không hợp lệ", "interval_report_user_traffic_to_admin_today.integer" => "Thời gian báo cáo lưu lượng người dùng cho quản trị viên phải là số nguyên", "interval_report_user_traffic_to_admin_today.min" => "Thời gian báo cáo lưu lượng người dùng cho quản trị viên phải lớn hơn 0", "interval_report_user_traffic_to_admin_today.max" => "Thời gian báo cáo lưu lượng người dùng cho quản trị viên phải nhỏ hơn 60", "interval_report_user_traffic_to_user_today.integer" => "Thời gian báo cáo lưu lượng người dùng cho người dùng phải là số nguyên", "interval_report_user_traffic_to_user_today.min" => "Thời gian báo cáo lưu lượng người dùng cho người dùng phải lớn hơn 0", "interval_report_user_traffic_to_user_today.max" => "Thời gian báo cáo lưu lượng người dùng cho người dùng phải nhỏ hơn 60", "report_node_traffic_today.in" => "Báo cáo lưu lượng nút không hợp lệ", "interval_report_node_traffic_to_admin_today.integer" => "Thời gian báo cáo lưu lượng nút cho quản trị viên phải là số nguyên", "interval_report_node_traffic_to_admin_today.min" => "Thời gian báo cáo lưu lượng nút cho quản trị viên phải lớn hơn 0", "interval_report_node_traffic_to_admin_today.max" => "Thời gian báo cáo lưu lượng nút cho quản trị viên phải nhỏ hơn 60", "interval_report_node_traffic_to_user_today.integer" => "Thời gian báo cáo lưu lượng nút cho người dùng phải là số nguyên", "interval_report_node_traffic_to_user_today.min" => "Thời gian báo cáo lưu lượng nút cho người dùng phải lớn hơn 0", "interval_report_node_traffic_to_user_today.max" => "Thời gian báo cáo lưu lượng nút cho người dùng phải nhỏ hơn 60", "interval_check_server.integer" => "Thời gian kiểm tra trạng thái của nút phải là số nguyên", "interval_check_server.min" => "Thời gian kiểm tra trạng thái của nút phải lớn hơn 0", "interval_check_server.max" => "Thời gian kiểm tra trạng thái của nút phải nhỏ hơn 60", "check_node_online_admin.in" => "Kiểm tra trạng thái của nút không hợp lệ", "auto_stop_node.in" => "Tắt nút tự động không hợp lệ", "maintenance_mode_enable.in" => "Chế độ bảo trì không hợp lệ", "app_personalized_enable.in" => "Chế độ cá nhân hóa ứng dụng không hợp lệ", "app_windows_enable.in" => "Chế độ ứng dụng Windows không hợp lệ", "app_windows_cfa.in" => "Ứng dụng Windows CFA không hợp lệ", "app_windows_nekoray.in" => "Ứng dụng Windows Nekoray không hợp lệ", "app_windows_netch.in" => "Ứng dụng Windows Netch không hợp lệ", "app_windows_v2rayn.in" => "Ứng dụng Windows V2rayN không hợp lệ", "app_macos_enable.in" => "Chế độ ứng dụng MacOS không hợp lệ", "app_macos_sb.in" => "Ứng dụng MacOS Shadowsocks không hợp lệ", "app_macos_clashx.in" => "Ứng dụng MacOS ClashX không hợp lệ", "app_macos_cfw.in" => "Ứng dụng MacOS CFW không hợp lệ", "app_macos_shadowrocket.in" => "Ứng dụng MacOS Shadowrocket không hợp lệ", "app_macos_qx.in" => "Ứng dụng MacOS QX không hợp lệ", "app_macos_karing.in" => "Ứng dụng MacOS karing không hợp lệ", "app_ios_enable.in" => "Chế độ ứng dụng iOS không hợp lệ", "app_ios_sb.in" => "Ứng dụng iOS Shadowsocks không hợp lệ", "app_ios_shadowrocket.in" => "Ứng dụng iOS Shadowrocket không hợp lệ", "app_ios_qx.in" => "Ứng dụng iOS QX không hợp lệ", "app_ios_surge.in" => "Ứng dụng iOS Surge không hợp lệ", "app_ios_stash.in" => "Ứng dụng iOS Stash không hợp lệ", "app_ios_streisand.in" => "Ứng dụng iOS Streisand không hợp lệ", "app_ios_karing.in" => "Ứng dụng iOS karing không hợp lệ", "app_android_enable.in" => "Chế độ ứng dụng Android không hợp lệ", "app_android_sb.in" => "Ứng dụng Android Shadowsocks không hợp lệ", "app_android_cfa.in" => "Ứng dụng Android CFA không hợp lệ", "app_android_nekobox.in" => "Ứng dụng Android Nekobox không hợp lệ", "app_android_meta.in" => "Ứng dụng Android Meta không hợp lệ", "app_android_surfboard.in" => "Ứng dụng Android Surfboard không hợp lệ", "app_android_v2rayng.in" => "Ứng dụng Android V2rayNG không hợp lệ", "app_android_karing.in" => "Ứng dụng Android karing không hợp lệ", "windows_logo_url.url" => "Định dạng URL logo Windows không đúng, phải chứa http(s)://", "windows_download_url.url" => "Định dạng URL tải xuống Windows không đúng, phải chứa http(s)://", "macos_logo_url.url" => "Định dạng URL logo MacOS không đúng, phải chứa http(s)://", "macos_download_url.url" => "Định dạng URL tải xuống MacOS không đúng, phải chứa http(s)://", "ios_logo_url.url" => "Định dạng URL logo iOS không đúng, phải chứa http(s)://", "ios_download_url.url" => "Định dạng URL tải xuống iOS không đúng, phải chứa http(s)://", "android_logo_url.url" => "Định dạng URL logo Android không đúng, phải chứa http(s)://", "android_download_url.url" => "Định dạng URL tải xuống Android không đúng, phải chứa http(s)://", "staff_generate_user_limit.integer" => "Giới hạn tạo tài khoản phải là số nguyên", "collaborator_enable.in" => "Chế độ đối tác không hợp lệ", "exchange_enable.in" => "Chế độ trao đổi không hợp lệ"];
+    }
+}
+
 ?>
-HR+cPnOfAR1Zlv672kEyamJbiWQqW36A4S05/gh8eH+Kuobqsv0hE04tW7lj7xtoTGCwH69sOiwq
-d5VXeky+Qd4rtYMxZMWoVDK+piOm+P3lVcQ8OLLEzYubuVOT3qqILesyKlGeTXO03TvC+J3EU+il
-oRfhD7YN1s36biO7omnUnSJI7+ilSPRY6RtMe2HaBPp4tXG5nSSqY+x7l6G46zf2wdxgmKdY16vO
-ojeKjf4SXi/M7clJ9qqNXhfCM2QvgjzcPCKPNiRYt96UewWHHZJvvKWtQ7o9MeCIiCO5db40JfTE
-lI3wRLcoRxAT/5HEnmA3reXW4/zUOXvaP5s0jZToLvBw9BMN07zTYvROo1a35ccb/AhfIOJHq0xW
-CP3umg/mPV2H6nxy8XlADhNWP9ABNXvh83Ih8oDpMwlAgh+QT2KVrj89bJEwRSLUDtkyv8VgZ6W5
-97gDCY9fnkkAxYEak5Sgdt3M1UrohlDcxaYMwpXXSMDMbI4IfUQ1xXMrlMQ7T46MRUCR5Sbpfhoz
-rrXyK74rEfQWLWWk263aPhLa01FkvlOm/xNSoFVIWxWNUpO7wNKG8V67gZEAXrYUrt+xhpavGAtM
-WXryvuPF0nJdhwDPdBQVA+ddkwsvtSgC5yESHYhhJMHjSNxGxrkG+AB1Klh59XLp/xFKT7PPqUBl
-fiIe8AVSu9AFxpjyOGYjmCjGMD3M63uFqQOIwU5o3wJGjqHj4sWxFeI6x9RWZwLjdHsAbC6hPOj1
-J2w5vwOIQwj/vGftRaZc/pRMUQCzG9GWean9RqdNUwOz0E+41R3cL+KmLqGC5qnCQ0G7wQ6JKr6h
-RFX182YLU1ShJBBimej+9VAQ2k1IYfypnm7SM3DBgxByUaIPqXL+xraDWCWJcpwpgdYuAPhN9rc5
-HcfcA31XNRXKy/2oLewgLT77dgSNIyRxaSig43IXLB6lAkLoTVdAcqu1lqBgoQZQIuUphPcHyzvq
-O1JTxc3OYzfwVNALXM1xBqH9qI3/ugJihoBqiA+CIg7eRXF1K+nJUv9BUT74a2kWbYB+3ZOfKvl1
-6f5zMyHlmb5dAYLUJde/ag1dk0tJj123Fr2IAe5xRpCjkrTte9KAwx9yTt15Dd7IbnlmmMEBTPMn
-m+0zVy44pF0aK62y1Nfesf+/JcX06kspB/GiG04GVA0WfVlukwOA7rr9E4jOd4C8BTiBsurX/Djp
-QBCuSej/YvJ5YIqwI/4go0gsJkOjY7ZCU+JakLemwUmwEXctiUINQXUK9GEXTO24i/Y4C8NRwZVt
-PvjYWn9EGk1NzTI0Z1Lf4b2xvOMoYEpNBhGjGcH6lmd2PqAeMJC1cR+zNHLSDZYp4//Tpxx+5erV
-wlMvI1UKyuuN0m8ndOdI0JbvB5vMzImFGdU6oSXfzjEPCVpLUC8sZBhXjSNe511OLwlcDxO14EN7
-Ebp/wQxT1rW9EzBj2PmbeUKSR2c/FMK75TbJGA2xHwKaEgC6AtoNw11C8bM0BVDqPSoUnhToB6OB
-8CYFcmEQ1UAv5notbndxX5E/X1dzE5OfqhYMH645BG5YRickxQOo1ZUPVQtRp3xSQlXZMQzyWqpV
-dGbTDe40q2M6QF4Xrp7Em6lWWtHa92JeFeueXbKqkPLVTefnuUp1CbOGR9FWnonDmzYvrp0VHXfI
-ai8uqYVajpgxqmDz7HdztJuDmvrrG+3uReFTkRmY+PKdvZVhty0O+dS2oBJ2pATKkctEQaZgmSFX
-99SAI5N5E+73IHMJ2Soud7w29e4P8TWPTWPs7FEUhqgLq3AxSxhkqXNvgKCkB1dUUzU8gUZk5CMX
-ewmwT7OQUUXs9TyvMUjsvR313HIWHziBAlA9S0OTsSZRLO1QIcGzvSQgzI8KRYA/gPKYIEdDzKXI
-bGYINR60NdnnicO4pO/jcjrhxuM5Sz1y3bcARVaXyczn/iRyA1PDAIDH1SLDdCSCFYB/b0ped4AC
-/A9/uphTfY7qM6kuKPSZNKjMv0jmT/vpbG4o95rOWGMKwDYIhINBgA/tRRfABDASahorJJF/dxd1
-2BPuANlF2V9eCFA4Lg8d1qxOZ1EimWdFjjdiZ21KfSNUSjwpD1PpDvgrJwHClchXd0Ri1Nf3dfTY
-sIIZ+tirlUOW4r9pP7PHMHuZE5gMc/VtjaDEyS5fRF7vRQPwYARz2lOmynsUVKia2irBSW2HsH7m
-x9H6l4jm9Rw34AytUnxEe92DXhcjc0XvdtvXEDpPqKXTO/05AtF36ODwSX2/BMVAgNVP8yb/H2/Y
-7cFmjNRUVufilG2WDqSUh900cutCFJL3ylvnGbpodItGZBK9M5oWRytnBnaM8DXFluxu8hm6lB3p
-bnsv0WOxSNA81mkrM3SiUw0jeuP1Puxy43CIjNm4NuEiQYE4hk4z3m5FJOSkJWZhDQn126596ugR
-5RTpJwJaIUWzH8Rc1gEPvgFSDnQGk20ioM5A3nAs8ITp7ci/8DhTbLJaPHXSMFHGhUv6a4AxsBT/
-PGFVwnN3rq+q2rs0uXzVwSa4fkllP81O2JLPeMdmafe5WRyY3XUZNxvzdr7JgfUlUnLOHlgxc/86
-Sp8CET4dQ+Z0+dRTfuGWdJt7xYyPkxynDOMiZgTml9+oWDAqHYKLBzo/4utb8RXlFk3cFaQVpY4+
-wXFD74S9QFJv/y8cYc3b/ftgpWFEAv6F2S40dR3DtK4FZNNnbOzzfog0yJWL2gK68Ca8sXb9kvS6
-leeBsOCv0YAWcR8n/8z6b72wLV9zq+YxeBFFPENsZqwLIaCvNgwgspPWJlj0v7hZn5rKwNyUbhSR
-kRWJw1yp4iN3VgphuXsKo5s3WjGveWY/AJs9dWrH7ToSMBhDh/ZOkopNDkbexomAi/OV85v1gYmt
-fxMp8/k+c2DTcg3W/nLUR6qQ8NBQIoEboxMypUj3tQDFMINM1akAAYhdFkdzZsfLxRUAvKIN49ZU
-Ra9EqMpr32znPRbuRCGFC/AmNCa5OXUxtahYFP9i5ZUHUG7iSITZJh06ULBS1amh0XlsXiPmjiAU
-KHD9g/tOO5QEFmr9+6bK5LPRAwkLS7tWn8YpfcynKg3lnDu8K0nA9xmPWAo8XVHwLI7pNH3hgIkJ
-8zEFUJg3iEjp4b9u9dzVMXej67UQAqCeA3I1rJCGeXFWVh7zY7M645rsw+NuuoneTqcxyHqMoDMC
-2JgqPuqJmednTTiYe4Fq9h7Pzqnw2SYlNzi0V0x/JS4/vFfhUPg3VexkWBqkwM+6so5x5OW9WFe8
-1v111FWF0TcPxeEUrUoXomqRO92Wn66NBTn0SE7n7ZiXQJcw9lwsuzT0XRqd8RoIZmfdxE43s7hs
-Yd+p92EwIHnojQXxfhvGmN7+7lUuu+5syWiIoJ60qFwF6q2LcpWIpYGSC2Py0VnDeqim7CI9wS6o
-d0RiO4DLe2OqyDo8HHy1irzcNmLebXAZsUGq20LuSc6/hWb+32vi+HAFqUpnXRfato9O/gTJ9+V7
-erUjTe+51IgStYghP5mLarEuh16ABn5NqTXY8Qvj0D9tUiUsLMq8TeEqqM77OcvqnNEUAfmPE+/K
-PDWTbzAVXKtFGSGvGDqBfC9kV3aSY5f+LyZEFx1tv3l/yW9KYgDr/lxMI8fhFofRQY/KtZ4UP/FQ
-yKgLM4OHLDuzJb36Ng8P/w51hHlE7g0r08BnQtz06j3V4NkL2KklfCKkAYrOyZYdKPY3fG3XGkjG
-9PCH3SNOtYF/cWdMVYj4J0P6QRMjmWL4d1Qp0WBB36F/IH8e2DIPyErb3xDkhVqFp4YiFP9MD9qZ
-8xhgTHaG7sw6M5KtbDl/1k7T2RQbhsNcQ4D8XG4KhPWwztDGVbI6Tk61LFouQwZkWcS9aZHWKLW7
-tH/JN9aWLzNlICdeBhVVM86t+VJ068J45QCDc/c4G63OrrjvlaTi+MyoDjxLUD5doG+MvN2+oqkS
-/kJzGGs9rJTHr59bfGp1Df73YNIPBbbI5ZrWXYTzHPW5MkXmqu1NpdxriRCs5daJZbfyKG7UyLiP
-yzPZ4NDHfm1V8an8lLLg6k2UtLUXUVyhLrX+pNyYoAdPGd1WEPWD4RlfDklIofAW/oKJ7YfJcD31
-HAK+dl7z5JHPxnN/edAvfuJJSZa9kwNsrcBV9K+ecTrrL+geN7QUdXcF4XLL+IvHQ3CnCTq7BGMp
-u/gBdr7nVYhezTFvDPMJEYOGTJd2+EEEtCXbtQxLbAQipw1b6El4iuGGXNsDuRIRJVILsDSgXKTP
-3+l0rYkp2vMSULj5PGCpv1CEMN1scIxnVvPByGx49TmYJIFnzGEFD7tGQYzNPPNVOjdpmVVQ5idZ
-OM4JD8WSPGdHIedY4zXKJ1l0qhxQPXoUzxOAbLnFv3LbELr3fVUHxcu+t0gLcNSVGVJ7vCtTJ1n2
-5DXjjpe+vaIF7CCMbVkDl7xyTT3KsN9h3QbVUVJmurAdldCAW0admOiqFfJyg8+42yxnsNyDooBZ
-77nFVW6glox4bTzUmmgqtCFTMDQ93rtCubMfV01zjPO8wtkp93UYdbpOM692vjIgkcf1eCspevZQ
-mX0ikGblexkdcWArJ6P3ixaiVE2nwIazgxKdknIysnXPPhejHef0SdsVDta6mkPSFMacujjR7dOw
-LQdU+gmsuGIKPgP4dCKzWfu3tp5oNqDNrLAOUPL33D8fM7bjlnc8e/kf7OvzrjSbhxVgKLmkrS4K
-W4FyGq06SdmhucIxE5nJTbLPzgpozQI7+s+mUy1WMQCSnZ5uMrzGha+hgotRNiKlvOCsJipjESFt
-VwVUDgdOytXdoFBgIuo1OYR1QpIcO5N5qC6ljN3pR8T7X5tib0IFzPnrUEO6pqSgr3wY+6IeWaAz
-ndwLi6H3O2ZZq3WTCD84c0raY3A1pS8ljrtSDDDMsfmajv3cTDgwL1ONEOx7lceL9cHvD55ziD1C
-s0omuRz1n6xZLgZDoC1lwAFloq24cO6nvr80ReOrV2YJZesIcnLIBtGYWZWO+NHB064bU8TJU3y7
-9XJGg6Mmvq61UFHyB/H0QEVYvv3szxHqALdZklywkIRr8tyRqC5CMt3GUD0Vv4Rk0fTzkxYfiTpb
-woR6Fv2OCIOwj9cbEBDuU+dstmglbAvfMYATNu9NJ65zD+6b/p5ReE/uHzEM6TRZi6FvKqRz8yCt
-Zw9GL9TUe1fhTNl/bIjtrc5Dr+ExpoumN89vdr3QbHr+HKAdjlP/CC7OsNtJZZGQoVQUzC8QVgVW
-1v9AQ3GEwiGqFjMeW841rhAf28MY/7ZFtVXM+fUY6RDYTZx0EkRxydFtMUGik3b7/mGTU1L0rLzS
-aT6LIree9Qqe+4WEmmSvCd4fhiyhOVXuBT7o0iRvJ2YFSdc0YH9ivgYhqT3DlGS8SEDCN8/tVgG8
-QoLraIhNP/rIy4fPSgh5/9rxySMgym5UxQOvOAqBzL3YaoHZNa+pGN+ODB4rY0msVFIpjI+14vW2
-BzyFwU9aiwnszp+ZrlEzv4fG64z3Up55a/GLr03nXlSsq2/Ce7pSCV/cJimiIGTUdpEcVGPcvvDr
-KvUHmoIZqkiQMSdQaV9dSlitQY+7J1GCR4sPxkcSR7a7KLwU2aq5mTUhz7vCX1ArjuSwPYFh/KYm
-Q3CfAzZp54rt2rqMf5oxwm0WaP0PK3JmmpRfYcuqyn2KZslsmnsYkwFRVLNm93q8gNQnsRnU9Kk/
-ze92yEPippgMsCH0lAJQJNmc2AlqM2+wiQeD51IVnok9OHkngWdeT1/iQ1FutvdLalWSwP4uOPPi
-iPzsxVtDsFfxBOEp4DaQ7e3ngjEXmhHonVqTIkrDuoMCrwIII1Gk2xbM6ojBpIYVHPewc2hwI6WR
-gJJpg+evY7ca1EWvLevA9L1bd4183gANAlpYHEoCTRC7/1QHoMMEYidveCP2gOONfzUwexQcaszc
-HaDv8lbCu3bBSvmAxhgbdnAHq3QM6tQJ0f/6au99zVyJBTZcw1elBJH2cQ5Wg8fm34DL3BXYtxNV
-rUWqgfVfX9SM3XDv0bkwZBuNYqNgcRLKA3D5TDsQ9XpLq0gS2KGEByRqUsAQl+voVfKV8sYw7dwa
-idPLq00TfA9pzPluMlfPjB7I33YXv4dxMTJG/x8MymcRraG2VexAJbiBxVWXLnMH5ytsRRgebpbR
-tGxTTP7p2TkEtNfBVgv+SW9ExGaafvb2YoVspu8t2FyHJqK81tRZl/oQzPNSGVux5WXAxxpphVlk
-j2vTETLU3EytvbIMdhsMJ+sqM3fkpSvD9ekVDkGtyiOR2YV+NXZc4DSts9UdCt4okBjzNv5Tj4O+
-JXcRgtvvniW0qti2hucfsXSwfXBsIJ+gVdH5ZNm210qqxNabFdNeZkA/a2ebOdnmVQ1dsyNcDmOh
-GI77xaYwp1eErKElLP1flMjo0FMh4xYIjqUYx5VOymus59bdNpGqsg+xQnTITNKoQVQrEFOVhRv8
-Orfh5x7DV9oRmEwLodqO0OlB3mi1JwbQFqP/p63dnyc+cqi1Jkh2sHu8R5IKaiLlHP3fkCyx5WIZ
-VVG1eTxFUnpbhUJ7k00jRWSxU2/YYUXDl0OkzcwHNAuqLP3wqXDOq0a2hOgMOdBUVjlz18Aofmvp
-bdNHIhdbIT/jzZF2OazBiIiAQurH0MMHUdP2SdhmEXDpWXbbejrN6r9PsGMXZsJmIKUui/x4Yc4n
-RZbshGivCQvg4AcvBP5TgDu/8F5yWaaD8Q0+U5P5YvcEBm1Hbj532mG6wXcZlrFkaTTyeEfVLXi=

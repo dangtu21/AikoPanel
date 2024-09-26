@@ -1,29 +1,24 @@
-<?php //002cd
-if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.4
+ * @ Decoder version: 1.0.2
+ * @ Release: 10/08/2022
+ */
+
+// Decoded file for php version 74.
+namespace App\Http\Requests\Admin;
+
+class KnowledgeCategorySort extends \Illuminate\Foundation\Http\FormRequest
+{
+    public function rules()
+    {
+        return ["knowledge_category_ids" => "required|array"];
+    }
+    public function messages()
+    {
+        return ["knowledge_category_ids.required" => "Hãy chọn ít nhất một danh mục", "knowledge_category_ids.array" => "Danh mục phải là một mảng"];
+    }
+}
+
 ?>
-HR+cPnymX4Sc7dreJuGHP1/iWcPF7CjO4tUXOAZ8wUHo4KMfntnzRvovpV2MxYSeGzDfX62fkrQZ
-waBNEWJpiF93VtX5iw5dbjxl21iBNdjF7zYYTIch3306MBEpH0KUNWDvppN5H8HM16LqJQ+toFWe
-J4GTutVHWDGj7DQ29w4lTy0I3jKRT2fxRma7zAUrSqXh7CXcV+qFIilW38Pq4kUxn6LTrgyFcTr7
-YAvv3NNuuJAsGcNOXiJu8LIrYniduXXAiKF7Sjebq40IiimJzCxDaUWMOdo9MeCIiCO5db40JfTE
-lI2KQJDAR7hywFsitqAZrQrYT5VDVBrD27c/XSk8ceTpGKqIdJ+FVvF0WjwjcxPtRtaOx+1dE8Hv
-bvu6q5qrKJHb3NZdSzj8uJ5EkABbWw6Qol/AChDOunw8o3UIHiFY67UAhYPn0FGIZbUKpcAYJHig
-fEG4CRNnRCo5v3VgcT2AcIQXQXU3TRHzsR1aOOyGxDCMU0l/pcpYineUTL0ALbhvH4DWd+wLT57q
-qoWojZyDxCXLndJjmtfb+yBDD72zV2C4afbHVr75CPcRXiPLEjxbE0eaZXlxCUl5Jk+SOZ3Sa/MZ
-TcMHAbNGyzLLJwHqS2Gilugl1wzUB7PPsRgYIOGZUrfNO5/cbpMrmrZsmt5KWgrh19kkb0Xh/vAj
-YECgSV/rtJOBavbDW1ijVYeUj/kHJwx+hm8ITcf+vRaA6K2Txx+RB8BYqs2jC97PpGreYwjIcDCw
-eE6WaCfPDJ5YJNLCn0Jv7jyVxjrw6VVgt6bZymRMh1hzaF3UIlDWheRv/Jz69T56hNCeI/poi2M3
-ZooWvYYBHdYnZViki0DSBNmtciTSBfxzinhqM/eNsxal9gNFVDZZwGnTXWqPD41A29V+687vfhCK
-bSKlg7TzBwIUmb7XMJknU0GxWCNN5zHjCoggO3zU6wQ+ZVZWlbpj7x5HkXMDgdQPFZWDQZSMMgKq
-C/n/hvl+CeJjey9Yarb2nRJ8r6RSpQz783VhJMUDHn0kCPVbJ0+Qdap1pFFcuQatEPuUU6TlLhTY
-FvMVxYBwfeHGLMQwnEKHu5e63o3FmyAV74ddddgUPGvcbw26/PNSeIEzmyc31yCr21Ya+JyoaMt0
-SIAMmvHMTwJJwelTTeX6MJ//IP7Cy4cRIraOWZDXkID0ec9r56Dqdf2X/Ds/IUGu2uGffvJ6s1GJ
-MtoTFiLZz9F+VOh0RBRizv3xSykNBB5lSshno4CsaMvGq/vQaCNssrFR7/o8C6AZlZ12KYRaK3tI
-edYxRQE0CbORUpLYBmLkEcXKOegCi3yILLiET6Ex660l99UcCnEL2ZWa+I1j5ZGn+4ofu5x01pfx
-TAUJUUMlTspEPD66T4IpbzlZNXA5isZLshhMlWnVPQQZ5TkcnxUWM2a25SqLRIy1ZwaD26rdQX8n
-2R/SMo/L7zeg2c53TWyuXeD/pp6sy4NhNhGIsP4HOLskYzj2M37yJ96kaoX8jygNmESPFqePlM25
-7YDuV0afysOAprmgw8bBQt2GuVgnG0hYoTWdY1l1hg8QVHVHg5ctNghssPMTMxYF4AuqQjE5evJQ
-PmekGR/SG53KOjdhXzfZ7IRuWnrY2aux4OpSVLd7Gl8zJEV+NDgrzvaCj7AvW/bt6WMOlA/eoDkq
-GIPZSInyRRBxUPJCYAeMHBBObyKV4owa4Vg9eJlj1DLIyEdD2dRSKha3B9pcmwW7XEHzguZe2Ddn
-qNtrz5w72BJKJRfbjcC7vfgmxngWoVsHeoJar6IAWsSV8sU9KpD5prxqw14/TTrUytNZC2Ys8qQN
-34ceR8h36wZeiWT7dnPCBvBu4s8e0/iJYqLqe5L0qRVfByrvZDxPqE9z7V0pF/QUgBXZgdQaiPmO
-YW3Hzk9gjybLO7K=

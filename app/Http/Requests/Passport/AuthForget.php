@@ -1,36 +1,24 @@
-<?php //002cd
-if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.4
+ * @ Decoder version: 1.0.2
+ * @ Release: 10/08/2022
+ */
+
+// Decoded file for php version 74.
+namespace App\Http\Requests\Passport;
+
+class AuthForget extends \Illuminate\Foundation\Http\FormRequest
+{
+    public function rules()
+    {
+        return ["email" => "required|email:strict", "password" => "required|min:8", "email_code" => "required"];
+    }
+    public function messages()
+    {
+        return ["email.required" => __("Email can not be empty"), "email.email" => __("Email format is incorrect"), "password.required" => __("Password can not be empty"), "password.min" => __("Password must be greater than 8 digits"), "email_code.required" => __("Email verification code cannot be empty")];
+    }
+}
+
 ?>
-HR+cPr6VmeuuPJUXjIbNhHZsX/XAoFb07qpbBkYD5vRP/NvvjvF90dfag7t/pNzXn2MwAcbuZ5kh
-1fwgIm2Ke86oQvj94BmXDyowkast3W47Nd92vu0zIh5Jm0iwJ7f0d4cZRzxu1vVkupxUUHLz3Htc
-gin1l6ckkeXbnxYlSCI3yCsZuITjwagJ3u3Z3a5eqvLnExb7hVuhAysVpnENPgK1Yra/7BNqqQiK
-ZJg4fNagkI9KmOVBb9rcYoVZWrdtBonJQHeSnWBuM8iO5RHOtFsv/GPkyF1yYLg34h361PvH04wN
-JhqWvsyER8P1seDSN+LGenMvObzEeLF20mX9c0udRFWxg+Z+Nksl62zksjPQVB1q+H9CHSF+dcrf
-X4l+YU9ER31OK/ourIbz3aAp4xlvnpAzYm79Wdy8eFW7E0GQ87H/6wbFdmWX4BrNL/azX9nmWQ8j
-OA+QeDI1xbgVvJdaiChwiiKQgycVs/43ftKwkWtSWmE1jMtRNuAbNc/e7AU57zrxqL9xAzck94Kt
-7gO8amiILsku/fHNQgabSxcvZbojurQ8M3wksJaZiTYgG0smpE94d8Rjj20PrRvBYag4W42szk+Z
-lJS01a0W3BNPXRa7nyfB3fHnm7WeCvohCa/Te6uahLllu4e/cswukQf0If8liTxgc8kRCFJPPlzh
-S10I61rpf+k4FbVtIxQO6pJPgGrQ0OxFjgxGcYqkP168nBsw3jDtBnhD/Teo6htK/gHUpiFfWn3d
-mFXsKSwFFT3VfK5wA3MrGBZneeh6ikVfy0qZtG5IwLzwr3lFXwYe4pJqOP8JGzSe0AGLwZrgjrrj
-aKe/Xhx4zmhZWGD3an2OJ9+Q8ldg5NCUmEwfPVr3ny6ORGxLvBeSxA8G6owupHmMvs+pvh7GpVBk
-I3uSpYPyYibqJF1+JsPaxD6Xuhec8yxZ/jzmz+2WEhoLDvjNo4TKjBnZiRzl8FybSEYr5GAJW5/Z
-cxE/ONTerrCWqXJIaCoTU33de6xfpmqgj50O/r9QlkT2sxDyeI2M+Bf+hYYlHA86pU8iBOVZT98X
-WjBeKfKavKGEo2BvmH2aEqoWPzFvbIjY/OWdk7RtmR9n87BrzubLNBgBksTVuWWWf5Fvdyamjv7P
-1ARRo37z7Vuc/iHQ6gkyeLIkpmI1C5WEouOG7AqMM0Q7c/yXmmZ9MA9XlbbLXJuK4HyhQVsaHGfv
-vL0ebPNs/1SLgsqRNoagc4fkblJIwba8tKohZSjrzYle0GXdza33K9kCdl8/gbEbcTF3l523crM5
-CdR6NAbKC5BZYY7ln/RZiNXhkKKz5S8fiGJoi0pztwlpCmZJYiKEMz5sn+FV2vJJSEj53b7q3mh/
-0zf3njHK9CEan4C/4t4+V8uXV11IdjVNwZ3a/xgMQg2IiF0lihUOlZU3wrBaYAn9H3MJAhXMjLya
-KzlYOqmB4471Tj35uFXA8C8zt+Yp4xddUKrzYte6bUzJrf/vKIaVw+cbI2iVlxBlV998izvZe5Jh
-BaH7Zyi8iV3ywr8QNpHh6RgG74Y9317T8chkdCk+b84VzH9Dxv7hzCGtGlZRzoePezL3AepZ7+HK
-4D7rk0TQBsPlpDZVcGvmySY8TKZw1geM/H64t35tyKZQUpXyE0hRwtdhLaQ9vVRxFlzgcjvcUjMZ
-lqJqe9lMNrdSG1rQQi9Jn0qldAUjsUAagbi2R80d/XeDK+fcuBrWo5Y+xaprhMT3O1P4d14Fs0NT
-KZR/v6h28CP4ko/DRc8EoxJY6Ffm7J07H2O0pdwolDicuJWaR3+jdH0L8p04e+4dz7WqrM8zRPb3
-OKRaTCtoVRgd1+dgnGX7g1Bc3UlDYwueSYmbTOk1EjoJcLL4+MLAkYCsbuoXCdxLLM3WHjMJs4qt
-GswWL/y4r7VZCM38AV61+Y39EOJrwx26VCjHB8U2QCxjKs0c1zNjtE0p8a20bDv8/hn1akjy41bx
-9Z9Kb5y6ZMkxJo6KnlOo/FjDAxw/jr07Yp3Sc9NJx3So5gZwQu8jtYmJIBBGzMDlDkvHwxEe2rcB
-haWJm8/MlOf1TVGvyNQpCfsBQzG1TAVqtZ5FAxy/62sYU24f12q8jOkEWUvJUzpvUtAgswGSUmWo
-rDsHzxeARB6nGb5pfgkAO/oBuuVylKCwv6DGmZb3ZBA5SDo6u3d9rEWkDpMEmAqUYO2Lm7SD078C
-3yE4eSL46hv+W/BEaCw3AV2a5MQjJTkKShOP7TnfuOb5vwDHTxF67+FueT9kPmywQFjcvpg/lv3U
-WnwnLoIvn9t4Nb3kWCnGayJafvp7xzgVVPC0FXVvN82jzLNljiPSmxAhuqMUSaazkP5bVPunT2On
-OZ4StVx8MNtEdSYsAYS/UIpCvoTwbXmLs7Xx2PjQLBMW2t6Baa0T/+htOHFtDd1xja4bSvrgHh5o
-nPpps8eg6vFUVYM0x0qKarPIU94W1iRnCUMJ5klIIGlHwsg+GZjMo0==

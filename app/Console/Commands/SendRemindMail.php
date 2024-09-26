@@ -1,35 +1,35 @@
-<?php //002cd
-if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.4
+ * @ Decoder version: 1.0.2
+ * @ Release: 10/08/2022
+ */
+
+// Decoded file for php version 74.
+namespace App\Console\Commands;
+
+class SendRemindMail extends \Illuminate\Console\Command
+{
+    protected $signature = "send:remindMail";
+    protected $description = "Gửi email nhắc nhở người dùng thanh toán";
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    public function handle()
+    {
+        $_obfuscated_0D07253C0B32041A1901093B2F391631402B2B26190E32_ = \App\Models\User::all();
+        $_obfuscated_0D282E0A3940040C25265C033832193E0605193F211822_ = new \App\Services\MailService();
+        foreach ($_obfuscated_0D07253C0B32041A1901093B2F391631402B2B26190E32_ as $user) {
+            if($user->remind_expire) {
+                $_obfuscated_0D282E0A3940040C25265C033832193E0605193F211822_->remindExpire($user);
+            }
+            if($user->remind_traffic) {
+                $_obfuscated_0D282E0A3940040C25265C033832193E0605193F211822_->remindTraffic($user);
+            }
+        }
+    }
+}
+
 ?>
-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

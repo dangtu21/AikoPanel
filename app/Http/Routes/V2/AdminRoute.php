@@ -1,32 +1,24 @@
-<?php //002cd
-if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.4
+ * @ Decoder version: 1.0.2
+ * @ Release: 10/08/2022
+ */
+
+// Decoded file for php version 74.
+namespace App\Http\Routes\V2;
+
+class AdminRoute
+{
+    public function map(\Illuminate\Contracts\Routing\Registrar $router)
+    {
+        $router->group(["prefix" => config("aikopanel.secure_path", config("aikopanel.frontend_admin_path", "aikopanel")), "middleware" => ["admin", "log"]], function ($router) {
+            $router->get("/stat/override", "V2\\Admin\\StatController@override");
+            $router->get("/stat/record", "V2\\Admin\\StatController@record");
+            $router->get("/stat/ranking", "V2\\Admin\\StatController@ranking");
+        });
+    }
+}
+
 ?>
-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

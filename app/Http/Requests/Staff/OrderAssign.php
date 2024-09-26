@@ -1,31 +1,24 @@
-<?php //002cd
-if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.4
+ * @ Decoder version: 1.0.2
+ * @ Release: 10/08/2022
+ */
+
+// Decoded file for php version 74.
+namespace App\Http\Requests\Staff;
+
+class OrderAssign extends \Illuminate\Foundation\Http\FormRequest
+{
+    public function rules()
+    {
+        return ["plan_id" => "required", "email" => "required", "total_amount" => "required", "period" => "required|in:one_day_price,month_price,week_price,two_month_price,quarter_price,half_year_price,year_price,two_year_price,three_year_price,onetime_price,reset_price"];
+    }
+    public function messages()
+    {
+        return ["plan_id.required" => "Đăng ký không được để trống", "email.required" => "Email không được để trống", "total_amount.required" => "Số tiền thanh toán không được để trống", "period.required" => "Chu kỳ đăng ký không được để trống", "period.in" => "Chu kỳ đăng ký không hợp lệ"];
+    }
+}
+
 ?>
-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
-gRin10jN2cQlOR9Yd6stXgfJZhao

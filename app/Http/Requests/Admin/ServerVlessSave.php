@@ -1,54 +1,32 @@
-<?php //002cd
-if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.4
+ * @ Decoder version: 1.0.2
+ * @ Release: 10/08/2022
+ */
+
+// Decoded file for php version 74.
+namespace App\Http\Requests\Admin;
+
+class ServerVlessSave extends \Illuminate\Foundation\Http\FormRequest
+{
+    public function rules()
+    {
+        \Illuminate\Support\Facades\Validator::extend("conditional_not_ip", function ($attribute, $value, $parameters, $validator) {
+            $data = $validator->getData();
+            list($ipField, $recordIdField) = $parameters;
+            if(!empty($data[$ipField]) && !empty($data[$recordIdField])) {
+                return !filter_var($value, FILTER_VALIDATE_IP);
+            }
+            return true;
+        });
+        return ["show" => "", "name" => "required", "group_id" => "required|array", "ips" => "nullable|array", "route_id" => "nullable|array", "parent_id" => "nullable|integer", "host" => "required|conditional_not_ip:ip,record_id", "ip" => "nullable|ipv4|required_without:host", "port" => "required", "server_port" => "required", "tls" => "required|in:0,1,2", "tags" => "nullable|array", "rate" => "required|numeric", "network" => "required", "network_settings" => "nullable|array", "tls_settings" => "nullable|array", "flow" => "nullable|in:xtls-rprx-vision", "arrange_priority" => "nullable|in:0,1", "speed_limit" => "nullable|numeric"];
+    }
+    public function messages()
+    {
+        return ["name.required" => "Tên không được để trống", "group_id.required" => "Nhóm không được để trống", "group_id.array" => "Nhóm không đúng định dạng", "route_id.array" => "Định dạng tuyến đường không đúng", "parent_id.integer" => "Định dạng ID cha không đúng", "host.required_without" => "Host là bắt buộc nếu không có IP", "host.conditional_not_ip" => "Host không được chứa địa chỉ IP khi IPv4 được chọn", "ip.ipv4" => "Định dạng IP không đúng", "ip.required_without" => "IP là bắt buộc nếu không có host", "port.required" => "Cổng không được để trống", "server_port.required" => "Cổng máy chủ không được để trống", "tls.required" => "TLS không được để trống", "rate.required" => "Tỷ lệ không được để trống", "rate.numeric" => "Tỷ lệ phải là số", "network.required" => "Mạng không được để trống", "network.in" => "Mạng không đúng định dạng", "arrange_priority.in" => "Định dạng ưu tiên sắp xếp không đúng", "speed_limit.numeric" => "Định dạng giới hạn tốc độ không đúng"];
+    }
+}
+
 ?>
-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

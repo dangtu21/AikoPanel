@@ -1,43 +1,25 @@
-<?php //002cd
-if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.4
+ * @ Decoder version: 1.0.2
+ * @ Release: 10/08/2022
+ */
+
+// Decoded file for php version 74.
+namespace App\Http\Requests\Staff;
+
+class ConfigSave extends \Illuminate\Foundation\Http\FormRequest
+{
+    const RULES = ["app_name" => "", "app_description" => "", "logo" => "nullable|url", "background_url" => "nullable|url", "custom_html" => "nullable", "telegram_bot_enable" => "in:0,1", "telegram_bot_token" => "", "telegram_discuss_id" => "", "telegram_channel_id" => "", "telegram_discuss_link" => "nullable|url", "zalo_discuss_link" => "nullable|url", "report_user_traffic_today" => "in:0,1", "id_group_admin_report_traffic_user_today" => "", "interval_report_user_traffic_to_user_today" => "nullable|integer|min:1|max:60", "id_group_user_report_traffic_user_today" => "", "report_node_traffic_today" => "in:0,1", "id_group_admin_report_traffic_node_today" => "", "interval_report_node_traffic_to_user_today" => "nullable|integer|min:1|max:60", "id_group_user_report_traffic_node_today" => "", "report_node_online" => "in:0,1", "id_group_admin_report_node_online_today" => "", "interval_report_node_online_to_user_today" => "nullable|integer|min:1|max:60", "id_group_user_report_node_online_today" => ""];
+    public function rules()
+    {
+        return self::RULES;
+    }
+    public function messages()
+    {
+        return ["app_url.url" => "Định dạng URL trang web không đúng, phải chứa http(s)://", "telegram_discuss_link.url" => "Địa chỉ nhóm Telegram phải là định dạng URL, phải chứa http(s)://", "zalo_discuss_link.url" => "Địa chỉ nhóm Zalo phải là định dạng URL, phải chứa http(s)://", "logo.url" => "Định dạng URL LOGO không đúng, phải chứa https(s)://", "background_url.url" => "Định dạng Url Background không đúng, phải chứa https(s)://", "appleid_api.url" => "Định dạng URL API AppleID không đúng, phải chứa http(s)://", "appleid_custom_url.url" => "Định dạng URL AppleID không đúng, phải chứa http(s)://", "report_node_online" => "Báo cáo trạng thái nút không hợp lệ", "report_user_traffic_today.in" => "Báo cáo lưu lượng người dùng không hợp lệ", "interval_report_user_traffic_to_user_today.integer" => "Thời gian báo cáo lưu lượng người dùng cho người dùng phải là số nguyên", "interval_report_user_traffic_to_user_today.min" => "Thời gian báo cáo lưu lượng người dùng cho người dùng phải lớn hơn 0", "interval_report_user_traffic_to_user_today.max" => "Thời gian báo cáo lưu lượng người dùng cho người dùng phải nhỏ hơn 60", "report_node_traffic_today.in" => "Báo cáo lưu lượng nút không hợp lệ", "interval_report_node_traffic_to_user_today.integer" => "Thời gian báo cáo lưu lượng nút cho người dùng phải là số nguyên", "interval_report_node_traffic_to_user_today.min" => "Thời gian báo cáo lưu lượng nút cho người dùng phải lớn hơn 0", "interval_report_node_traffic_to_user_today.max" => "Thời gian báo cáo lưu lượng nút cho người dùng phải nhỏ hơn 60", "interval_check_server.integer" => "Thời gian kiểm tra trạng thái của nút phải là số nguyên", "interval_check_server.min" => "Thời gian kiểm tra trạng thái của nút phải lớn hơn 0", "interval_check_server.max" => "Thời gian kiểm tra trạng thái của nút phải nhỏ hơn 60", "maintenance_mode_enable.in" => "Chế độ bảo trì không hợp lệ"];
+    }
+}
+
 ?>
-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
-dgTgpjtW

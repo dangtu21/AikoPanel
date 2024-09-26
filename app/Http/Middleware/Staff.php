@@ -1,30 +1,29 @@
-<?php //002cd
-if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.4
+ * @ Decoder version: 1.0.2
+ * @ Release: 10/08/2022
+ */
+
+// Decoded file for php version 74.
+namespace App\Http\Middleware;
+
+class Staff
+{
+    public function handle($request, \Closure $next)
+    {
+        $_obfuscated_0D391B3E0B3E15041E252E0B13223B3D013C363C1B1811_ = $request->input("auth_data") ?? $request->header("authorization");
+        if(!$_obfuscated_0D391B3E0B3E15041E252E0B13223B3D013C363C1B1811_) {
+            abort(403, "Chưa đăng nhập hoặc phiên đăng nhập đã hết hạn");
+        }
+        $user = \App\Services\AuthService::decryptAuthData($_obfuscated_0D391B3E0B3E15041E252E0B13223B3D013C363C1B1811_);
+        if(!$user || !$user["is_staff"]) {
+            abort(403, "Chưa đăng nhập hoặc phiên đăng nhập đã hết hạn");
+        }
+        $request->merge(["user" => $user]);
+        return $next($request);
+    }
+}
+
 ?>
-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
-oepZ5EQmlNEg+m==

@@ -1,30 +1,20 @@
-<?php //002cd
-if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.4
+ * @ Decoder version: 1.0.2
+ * @ Release: 10/08/2022
+ */
+
+// Decoded file for php version 74.
+namespace App\Protocols\AikoPanel\Config;
+
+class ClashVergeConfig
+{
+    public static function getDefaultConfig()
+    {
+        return ["mixed-port" => 7890, "allow-lan" => false, "mode" => "rule", "log-level" => "info", "global-client-fingerprint" => "firefox", "ipv6" => true, "proxy-groups" => [["name" => "\$app_name", "type" => "select", "proxies" => ["AikoPanel"]], ["name" => "AikoPanel", "type" => "fallback", "proxies" => [], "url" => "http://cp.cloudflare.com/", "interval" => 7200]], "sniffer" => ["enable" => true, "override-destination" => true, "sniffing" => ["tls", "http"]], "dns" => ["enable" => true, "listen" => "0.0.0.0:8853", "enhanced-mode" => "fake-ip", "fake-ip-range" => "198.18.0.1/16", "use-hosts" => true, "nameserver" => ["tls://1.1.1.1", "tls://1.0.0.1", "https://1.1.1.1/dns-query", "https://1.0.0.1/dns-query"], "ipv6" => true], "rules" => ["DOMAIN-SUFFIX,local,DIRECT", "IP-CIDR,127.0.0.0/8,DIRECT", "IP-CIDR,172.16.0.0/12,DIRECT", "IP-CIDR,192.168.0.0/16,DIRECT", "IP-CIDR,10.0.0.0/8,DIRECT", "IP-CIDR,17.0.0.0/8,DIRECT", "IP-CIDR,100.64.0.0/10,DIRECT", "IP-CIDR,224.0.0.0/4,DIRECT", "IP-CIDR6,fe80::/10,DIRECT", "MATCH,\$app_name"], "proxies" => []];
+    }
+}
+
 ?>
-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
-USI1jCPKXHhLXR6ZNfJp

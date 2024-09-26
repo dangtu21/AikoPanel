@@ -1,82 +1,64 @@
-<?php //002cd
-if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.4
+ * @ Decoder version: 1.0.2
+ * @ Release: 10/08/2022
+ */
+
+// Decoded file for php version 74.
+namespace App\Services;
+
+class CloudflareService
+{
+    protected $client;
+    protected $zoneId;
+    public function __construct()
+    {
+        $this->client = new \GuzzleHttp\Client(["base_uri" => "https://api.cloudflare.com/client/v4/", "headers" => ["X-Auth-Email" => config("aikopanel.cloudflare_email") ?? env("CLOUDFLARE_EMAIL"), "X-Auth-Key" => config("aikopanel.cloudflare_api_key") ?? env("CLOUDFLARE_API_KEY"), "Content-Type" => "application/json"]]);
+        $this->zoneId = config("aikopanel.cloudflare_zone_id") ?? env("CLOUDFLARE_ZONE_ID");
+    }
+    public function updateDnsRecord($recordName, $recordType, $recordContent)
+    {
+        try {
+            $_obfuscated_0D08342F1604241E0B090F21210937351D3C1021313C32_ = $this->getDnsRecordId($recordName, $recordType);
+            if(!$_obfuscated_0D08342F1604241E0B090F21210937351D3C1021313C32_) {
+                throw new \Exception("Không tìm thấy DNS record với tên: " . $recordName);
+            }
+            $_obfuscated_0D173C5B2F0F0718300A1B3C3F261317353F2E16072332_ = $this->client->put("zones/" . $this->zoneId . "/dns_records/" . $_obfuscated_0D08342F1604241E0B090F21210937351D3C1021313C32_, ["json" => ["type" => $recordType, "name" => $recordName, "content" => $recordContent]]);
+            return json_decode((string) $_obfuscated_0D173C5B2F0F0718300A1B3C3F261317353F2E16072332_->getBody(), true);
+        } catch (\GuzzleHttp\Exception\GuzzleException $ex) {
+            throw new \Exception("Lỗi khi gọi API: " . $_obfuscated_0D39113705281E271206151E01101F0A27123C24394011_->getMessage());
+        } catch (\Exception $ex) {
+            throw new \Exception("Lỗi: " . $_obfuscated_0D39113705281E271206151E01101F0A27123C24394011_->getMessage());
+        }
+    }
+    private function getDnsRecordId($name, $type)
+    {
+        try {
+            $_obfuscated_0D173C5B2F0F0718300A1B3C3F261317353F2E16072332_ = $this->client->get("zones/" . $this->zoneId . "/dns_records", ["query" => ["name" => $name, "type" => $type]]);
+            $data = json_decode((string) $_obfuscated_0D173C5B2F0F0718300A1B3C3F261317353F2E16072332_->getBody(), true);
+            if(!empty($data["result"]) && is_array($data["result"])) {
+                return $data["result"][0]["id"] ?? NULL;
+            }
+            return NULL;
+        } catch (\GuzzleHttp\Exception\GuzzleException $ex) {
+            throw new \Exception("Lỗi khi tìm kiếm DNS record: " . $_obfuscated_0D39113705281E271206151E01101F0A27123C24394011_->getMessage());
+        }
+    }
+    public function listDnsRecords()
+    {
+        try {
+            $_obfuscated_0D173C5B2F0F0718300A1B3C3F261317353F2E16072332_ = $this->client->get("zones/" . $this->zoneId . "/dns_records", ["query" => ["per_page" => 100]]);
+            $data = json_decode((string) $_obfuscated_0D173C5B2F0F0718300A1B3C3F261317353F2E16072332_->getBody(), true);
+            if(!isset($data["success"]) || !$data["success"]) {
+                throw new \Exception("Failed to fetch DNS records");
+            }
+            return $data["result"];
+        } catch (\GuzzleHttp\Exception\GuzzleException $ex) {
+            throw new \Exception("Error while fetching DNS records: " . $_obfuscated_0D39113705281E271206151E01101F0A27123C24394011_->getMessage());
+        }
+    }
+}
+
 ?>
-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
-/oUNg3Vu49tyrq2c42RQOMAxjqaCYsAYLZWrKW==

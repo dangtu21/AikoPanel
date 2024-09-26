@@ -1,28 +1,20 @@
-<?php //002cd
-if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.4
+ * @ Decoder version: 1.0.2
+ * @ Release: 10/08/2022
+ */
+
+// Decoded file for php version 74.
+namespace App\Protocols\AikoPanel\Config;
+
+class ClashConfig
+{
+    public static function getDefaultConfig()
+    {
+        return ["mixed-port" => 7890, "allow-lan" => false, "mode" => "rule", "log-level" => "info", "global-client-fingerprint" => "firefox", "ipv6" => true, "proxy-groups" => [["name" => "\$app_name", "type" => "select", "proxies" => ["AikoPanel"]], ["name" => "AikoPanel", "type" => "fallback", "proxies" => [], "url" => "http://cp.cloudflare.com/", "interval" => 7200]], "sniffer" => ["enable" => true, "override-destination" => true, "sniffing" => ["tls", "http"]], "dns" => ["enable" => true, "listen" => "0.0.0.0:8853", "enhanced-mode" => "fake-ip", "fake-ip-range" => "198.18.0.1/16", "use-hosts" => true, "nameserver" => ["tls://1.1.1.1", "tls://1.0.0.1", "https://1.1.1.1/dns-query", "https://1.0.0.1/dns-query"], "ipv6" => true], "rules" => ["DOMAIN-SUFFIX,local,DIRECT", "IP-CIDR,127.0.0.0/8,DIRECT", "IP-CIDR,172.16.0.0/12,DIRECT", "IP-CIDR,192.168.0.0/16,DIRECT", "IP-CIDR,10.0.0.0/8,DIRECT", "IP-CIDR,17.0.0.0/8,DIRECT", "IP-CIDR,100.64.0.0/10,DIRECT", "IP-CIDR,224.0.0.0/4,DIRECT", "IP-CIDR6,fe80::/10,DIRECT", "MATCH,\$app_name"], "proxies" => []];
+    }
+}
+
 ?>
-HR+cPrkn9s6icPnMsGMoGgL5JaMET8BDo5kbHeB8Qcb7AVRcPa2Pa91fpwg7SNwA6KeaEik4V+2V
-OmY42Tu9Xzlh01cqjYZ99eadwz/ybF+vESNnDbAfU5BuQE0GGVROiFn9BWG0Xylb06GB3aQtmAIs
-9n+WE6m75dZTVYo8x9FGl5Ucm7a2pa+MXXl2pQkqwWzVYSSdSX2hC56tlEkU1H9wFW0U0aJqHkRb
-CdwcIiZjUDoXhDXDbGTmFOoAUdee96cf00f3L9PkMPEbaYJfaob4fn6vpto9MeCIiCO5db40JfTE
-lI2uQuyCvsS4+kdelWQZrJbZEFzjbNDFea2fko0L6VpaJOgyohUgqXSOxepg6F05n/UCgG5lqq/s
-+BYu+1hocfteRRZCPqZXxJtp/+oM7/mNYcVuKOQ3hf7gyxGTb4VJb5PuvePwyzNJauNVXiGkAvvP
-QW37VKfdDsC3rWsomZsbwTYJ+CQM+AXfzPnlBJ2nBtJKQ/PU/NNRNehNIHGhlrlm2qeb2hjS4vnu
-4Fy1mSYLQz0qDedjGdA9I5/HPj02KnDYh71tsoWB+rIjsuewDb5b0QVXfhjx37LfSjfaOG96EmoC
-+PfLBTQXYiECrgRufCIsd97xOg2D93sFBY6nALennc2RFNFiAgmYyxtJWFc0CKnc/ums75mCQPhZ
-okRNieQE1zNwkxohyOcSV9rdmopVycEikoBE6jgu/93TuX/oZvhgkLWPyIQvQTXlMZu2u/BYOoAN
-9qis+q5J1G5DXatHA3XodYE7i4k+CJZMaGIagA/52T/ud+JFe5Fin8z6nYq3QDZqpFNKDADFSo2t
-6nkpIl94S80deA82MEV40r1scgTr6v6tiop4VoroTZwF2XLhNceZVK6Y47F/p1Bxw7jc7HbJq2N7
-r9iWJuU10299AuTpkb0/L+oCt8KuNPJ2jkYDbMUI1SSN1/1F1r8AxGQ/XOHJGRxeCnQM4SuaXW0w
-rNFDaipgFp0Uc98MSO2AcCT94rZ/YSbZLhbX9Ih+zGhK2bVyiggzqPtam0+Sm5zXKQ5vtTLUtpB6
-h4RiJibO7zahj5njAyjFTOVnuhviNr7ijoPThIga5xq4ez20TjhIpBLIN3ssi/hKq+91dYUwOyO/
-tuWQa6xPuwT2OfZmY3DM3LaVJXIBX6t1i3qBPnrCwlccsXRL5n6cu3AwGvmQmLDoG2ikvmLxtj3G
-1v7tbm6g5mH0Ejnncxo6rOCdrIDjCipM+ypO36IZN2rRU9J33fcVuw6nQh0UUKyOvjwAj9oSj+9Y
-SDdHemQahTipizcnnlEjTq/mdP9LX+nKBT81k2SMXzswggD706vBy9EHLP8YNSZU2NI5bkA5qsMf
-NgpMBzat1YQ0XGXgRspnnkjO3hEk0sS9aIu76Udk/e11dxJ286SBe8juo6iEY47z85GG1TmQoHF0
-daDGGIwToxzy/FN2mHgP+Yokp1Iz5KOUE9N8I2MsZzqklbW1/A4mxQkpiFKpaQPoRLIZ88cy1ufK
-2CXXibgr1p2IlzbYyE0P8tdH+8jDUixFNpUVOfkfFoiVKrcDHzG+wBxRysTSySxq8PaWJ5Xlfnnk
-z0Sn75rH9ANYlrtl+/w7vIr8+7gdgH2CcGMN9wHVbtx2bCNh1fb4t2yPzIzXkwHDrvRzKy4VwoSZ
-OLPTW9+Uh9l7sPxZrXynuRRTfPmcsLLMPeujJNfBX316hyJlxSkhrEbanFEbJBSir2lK87WZMEYk
-NnRhsy1gL1Mmp6/R7/gqER4z3DNcXWZQWkj+oLYRm76Zzd3NrXCFu/SdB/QK7w3YHrOwsGuLoPMP
-6GzvTXecBjNARfMGkRfNHsbX

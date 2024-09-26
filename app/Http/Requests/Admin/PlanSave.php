@@ -1,40 +1,24 @@
-<?php //002cd
-if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.4
+ * @ Decoder version: 1.0.2
+ * @ Release: 10/08/2022
+ */
+
+// Decoded file for php version 74.
+namespace App\Http\Requests\Admin;
+
+class PlanSave extends \Illuminate\Foundation\Http\FormRequest
+{
+    public function rules()
+    {
+        return ["name" => "required", "content" => "", "group_id" => "required", "transfer_enable" => "required", "one_day_price" => "nullable|integer", "month_price" => "nullable|integer", "two_month_price" => "nullable|integer", "week_price" => "nullable|integer", "quarter_price" => "nullable|integer", "half_year_price" => "nullable|integer", "year_price" => "nullable|integer", "two_year_price" => "nullable|integer", "three_year_price" => "nullable|integer", "onetime_price" => "nullable|integer", "reset_price" => "nullable|integer", "reset_traffic_method" => "nullable|integer|in:0,1,2,3,4,5", "capacity_limit" => "nullable|integer", "speed_limit" => "nullable|integer", "device_limit" => "nullable|integer", "appleid_limit" => "nullable|integer", "sni" => "nullable", "plan_type" => "nullable|integer|in:1,2,3", "plan_of_staff" => "nullable|array"];
+    }
+    public function messages()
+    {
+        return ["name.required" => "Tên không được để trống", "type.required" => "Loại gói không được để trống", "type.in" => "Loại gói không hợp lệ", "group_id.required" => "Nhóm không được để trống", "transfer_enable.required" => "Băng thông không được để trống", "device_limit.integer" => "Số lượng thiết bị không hợp lệ", "appleid_limit.integer" => "Số lần lấy Apple ID không hợp lệ", "one_day_price.integer" => "Một ngày không hợp lệ", "month_price.integer" => "Tháng không hợp lệ", "week_price.integer" => "Tuần không hợp lệ", "two_month_price.integer" => "Hai tháng không hợp lệ", "quarter_price.integer" => "Quý không hợp lệ", "half_year_price.integer" => "Nửa năm không hợp lệ", "year_price.integer" => "Năm không hợp lệ", "two_year_price.integer" => "Hai năm không hợp lệ", "three_year_price.integer" => "Ba năm không hợp lệ", "onetime_price.integer" => "Một lần không hợp lệ", "reset_price.integer" => "Giá khôi phục không hợp lệ", "reset_traffic_method.integer" => "Định dạng phương pháp khôi phục lưu lượng không hợp lệ", "reset_traffic_method.in" => "Định dạng phương pháp khôi phục lưu lượng không hợp lệ", "capacity_limit.integer" => "Giới hạn dung lượng không hợp lệ", "speed_limit.integer" => "Giới hạn tốc độ không hợp lệ", "plan_type.integer" => "Loại gói không hợp lệ", "plan_type.in" => "Loại gói không hợp lệ", "plan_of_staff.array" => "Định dạng nhân viên không hợp lệ"];
+    }
+}
+
 ?>
-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
-2MWrYzaK/KD3JGLuQ8l4ksYG4he=

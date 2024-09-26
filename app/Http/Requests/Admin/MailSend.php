@@ -1,30 +1,24 @@
-<?php //002cd
-if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.4
+ * @ Decoder version: 1.0.2
+ * @ Release: 10/08/2022
+ */
+
+// Decoded file for php version 74.
+namespace App\Http\Requests\Admin;
+
+class MailSend extends \Illuminate\Foundation\Http\FormRequest
+{
+    public function rules()
+    {
+        return ["type" => "required|in:1,2,3,4", "subject" => "required", "content" => "required", "receiver" => "array"];
+    }
+    public function messages()
+    {
+        return ["type.required" => "Loại gửi không được để trống", "type.in" => "Loại gửi không hợp lệ", "subject.required" => "Tiêu đề không được để trống", "content.required" => "Nội dung không được để trống", "receiver.array" => "Người nhận phải là một mảng"];
+    }
+}
+
 ?>
-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
